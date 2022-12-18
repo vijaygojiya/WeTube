@@ -8,6 +8,10 @@ const AppImages = {
   ic_library_filled: require('./ic_library_filled.png'),
   ic_library_outline: require('./ic_library_outline.png'),
   ic_circle_plus: require('./ic_circle_plus.png'),
+  yt_logo: require('./yt_logo.png'),
+  ic_cast: require('./ic_cast.png'),
+  ic_bell: require('./ic_bell.png'),
+  ic_search: require('./ic_search.png'),
 };
 
 export default AppImages;

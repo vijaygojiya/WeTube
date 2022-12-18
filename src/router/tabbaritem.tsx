@@ -42,9 +42,9 @@ const styles = StyleSheet.create({
     backgroundColor: Color.balck,
   },
   iconStyle: {
-    height: StyleConfig.countPixelRatio(24),
-    width: StyleConfig.countPixelRatio(24),
-    paddingVertical: StyleConfig.smartScale(15),
+    height: StyleConfig.countPixelRatio(20),
+    width: StyleConfig.countPixelRatio(20),
+    marginTop: StyleConfig.smartScale(9),
     tintColor: Color.white,
   },
   uploadIconStyle: {
@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
   },
   titleStyle: {
     fontFamily: StyleConfig.fontRegular,
-    fontSize: StyleConfig.countPixelRatio(10),
+    fontSize: StyleConfig.countPixelRatio(12),
+    marginBottom: StyleConfig.smartScale(4),
     color: Color.titleColor,
   },
 });
