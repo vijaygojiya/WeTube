@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, StatusBar} from 'react-native';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import React, { useEffect } from 'react';
+import { StyleSheet, StatusBar } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import AppNavigator from './src/router';
-import {Color} from './src/utils/color';
+import { Color } from './src/utils/color';
 
 const App = () => {
   useEffect(() => {
@@ -12,8 +12,8 @@ const App = () => {
 
   const example = async () => {
     try {
-      const response = await changeNavigationBarColor(Color.balck, false, true);
-      console.log(response); // {success: true}
+      const response = await changeNavigationBarColor( Color.balck, false, true);
+      console.log('afds', response); // {success: true}
     } catch (e) {
       console.log(e); // {success: false}
     }

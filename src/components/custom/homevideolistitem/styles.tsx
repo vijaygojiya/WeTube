@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
     backgroundColor: Color.subTitleColor,
   },
   durationTextStyle: {
+    color: Color.titleColor,
     fontFamily: StyleConfig.fontRegular,
     fontSize: StyleConfig.countPixelRatio(12),
     backgroundColor: Color.balck,
@@ -37,7 +38,7 @@ export const styles = StyleSheet.create({
     fontSize: StyleConfig.countPixelRatio(14),
   },
   videoSubTitleTextStyle:{
-    fontFamily: StyleConfig.fontMedium,
+    fontFamily: StyleConfig.fontRegular,
     color: Color.subTitleColor,
     fontSize: StyleConfig.countPixelRatio(12),
   }

@@ -19,7 +19,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.screenBackground}>
       <TopAppBars />
-      <FlatList data={[...videos, ...videos, ...videos, ...videos, ...videos]} renderItem={renderVideoListItem} keyExtractor={getKey} />
+      <FlatList data={videos} renderItem={renderVideoListItem} keyExtractor={getKey} showsVerticalScrollIndicator={false} bounces={false} />
     </View>
   );
 };

@@ -5,8 +5,8 @@ export const videos = [
     thumbnailUrl:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png',
     duration: '8:18',
-    uploadTime: 'May 9, 2011',
-    views: '24,969,123',
+    uploadTime: 1671388040,
+    views: '23444',
     author: 'Vlc Media Player',
     videoUrl:
       'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
@@ -20,8 +20,8 @@ export const videos = [
     title: 'The first Blender Open Movie from 2006',
     thumbnailUrl: 'https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp',
     duration: '12:18',
-    uploadTime: 'May 9, 2011',
-    views: '24,969,123',
+    uploadTime: 1665150755093,
+    views: 24969123,
     author: 'Blender Inc.',
     videoUrl:
       'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
@@ -35,8 +35,8 @@ export const videos = [
     title: 'For Bigger Blazes',
     thumbnailUrl: 'https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     duration: '8:18',
-    uploadTime: 'May 9, 2011',
-    views: '24,969,123',
+    uploadTime: 1659648855623,
+    views: 969123,
     author: 'T-Series Regional',
     videoUrl:
       'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
@@ -51,8 +51,8 @@ export const videos = [
     thumbnailUrl:
       'https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg',
     duration: '8:18',
-    uploadTime: 'May 9, 2011',
-    views: '24,969,123',
+    uploadTime: 1666066500301,
+    views: 241230,
     author: 'T-Series Regional',
     videoUrl:
       'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
@@ -67,8 +67,8 @@ export const videos = [
     thumbnailUrl:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png',
     duration: '8:18',
-    uploadTime: 'May 9, 2011',
-    views: '24,969,123',
+    uploadTime: 1667869351523,
+    views: 69123,
     author: 'Vlc Media Player',
     videoUrl:
       'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
@@ -82,8 +82,8 @@ export const videos = [
     title: 'For Bigger Blazes',
     thumbnailUrl: 'https://images.unsplash.com/photo-1563874257547-d19fbb71b46c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHRodW1ibmFpbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
     duration: '8:18',
-    uploadTime: 'May 9, 2011',
-    views: '24,969,123',
+    uploadTime: 1665078059078,
+    views: 59123,
     author: 'T-Series Regional',
     videoUrl:
       'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
@@ -98,8 +98,8 @@ export const videos = [
     thumbnailUrl:
       'https://img.jakpost.net/c/2019/09/03/2019_09_03_78912_1567484272._large.jpg',
     duration: '8:18',
-    uploadTime: 'May 9, 2011',
-    views: '24,969,123',
+    uploadTime: 1661966109274,
+    views: 1300,
     author: 'T-Series Regional',
     videoUrl:
       'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
@@ -113,8 +113,8 @@ export const videos = [
     title: 'The first Blender Open Movie from 2006',
     thumbnailUrl: 'https://i.ytimg.com/vi_webp/gWw23EYM9VM/maxresdefault.webp',
     duration: '12:18',
-    uploadTime: 'May 9, 2011',
-    views: '24,969,123',
+    uploadTime: 1669763423800,
+    views: '4994123',
     author: 'Blender Inc.',
     videoUrl:
       'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',

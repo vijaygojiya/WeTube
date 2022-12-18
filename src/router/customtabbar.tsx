@@ -19,14 +19,14 @@ const TabBarList = [
   },
   {
     title: String.Short,
-    activeIcon: AppImages.ic_explore_filled,
-    inActiveIcon: AppImages.ic_explore_outline,
+    activeIcon: AppImages.ic_shorts_filled,
+    inActiveIcon: AppImages.ic_shorts_outline,
     navigation: Routes.Short,
   },
   {
     title: String.Upload,
-    activeIcon: AppImages.ic_circle_plus,
-    inActiveIcon: AppImages.ic_circle_plus,
+    activeIcon: AppImages.ic_plus,
+    inActiveIcon: AppImages.ic_plus,
     navigation: Routes.Subscriptions,
   },
   {
