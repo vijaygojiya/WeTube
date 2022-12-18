@@ -13,6 +13,7 @@ const TabNavigator = () => {
     <Tab.Navigator
       backBehavior="history"
       screenOptions={{
+        headerShown: false,
         tabBarHideOnKeyboard: true,
       }}
       tabBar={props => {

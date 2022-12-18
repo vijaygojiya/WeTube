@@ -1,6 +1,7 @@
 import {StyleSheet, Text, Image, Pressable} from 'react-native';
 import React, {memo, useCallback, useMemo} from 'react';
 import StyleConfig from '../utils/StyleConfig';
+import { Color } from '../utils/color';
 
 const TabBarItem = (props: any) => {
   const {activeIcon, inActiveIcon, title, index, selectedIndex, onTabClick} =
@@ -38,11 +39,13 @@ const styles = StyleSheet.create({
     width: StyleConfig.width / 5,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: Color.balck,
   },
   iconStyle: {
     height: StyleConfig.countPixelRatio(24),
     width: StyleConfig.countPixelRatio(24),
     paddingVertical: StyleConfig.smartScale(15),
+    tintColor: Color.white,
   },
   uploadIconStyle: {
     height: StyleConfig.countPixelRatio(37),
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
   },
   titleStyle: {
     fontFamily: StyleConfig.fontRegular,
-    fontSize: StyleConfig.countPixelRatio(12),
-    color: 'black',
+    fontSize: StyleConfig.countPixelRatio(10),
+    color: Color.titleColor,
   },
 });

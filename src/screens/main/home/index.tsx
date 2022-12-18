@@ -5,7 +5,7 @@ import {styles} from './styles';
 const HomeScreen = () => {
   return (
     <View style={styles.screenBackground}>
-      <Text>HomeScreen</Text>
+      <Text>adf</Text>
     </View>
   );
 };
