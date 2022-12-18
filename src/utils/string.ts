@@ -1,6 +1,6 @@
 export const String = {
   Home: 'Home',
-  Explore: 'Explore',
+  Short: 'Short',
   Subscriptions: 'Subscriptions',
   Library: 'Library',
   Upload: 'Upload',

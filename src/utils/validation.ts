@@ -71,7 +71,9 @@ const Validation = {
     }
     return false;
   },
-  isEmptyField: (text: { trim: () => { (): any; new(): any; length: number; }; }) => {
+  isEmptyField: (text: {
+    trim: () => {(): any; new (): any; length: number};
+  }) => {
     if (text.trim().length > 0) {
       return true;
     } else {

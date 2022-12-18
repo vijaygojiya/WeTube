@@ -1,4 +1,4 @@
-import { String } from './string';
+import {String} from './string';
 
 const InputConfig = {
   LoginInput: [

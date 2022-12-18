@@ -15,7 +15,7 @@ export const Type_Of_SignUp = {
 
 export const Type_Of_TabBar = {
   Home: 0,
-  Explore: 1,
+  Shorts: 1,
   Upload: 2,
   Subscriptions: 3,
   Library: 4,

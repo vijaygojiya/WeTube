@@ -1,14 +1,31 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import ProfileScreen from '../screens/others/profile';
+import Routes from './routes';
+import TabNavigator from './tabnavigator';
 
-const index = () => {
+const Stack = createNativeStackNavigator();
+
+const MyTheme = {
+  dark: false,
+  colors: {
+    background: '#ffffff',
+  },
+};
+
+function AppNavigator() {
   return (
-    <View>
-      <Text>index</Text>
-    </View>
-  )
+    <NavigationContainer theme={MyTheme}>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name={Routes.MainNav} component={TabNavigator} />
+        <Stack.Screen name={Routes.Profile} component={ProfileScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
-export default index
-
-const styles = StyleSheet.create({})
+export default AppNavigator;
