@@ -7,17 +7,7 @@ import StyleConfig from '../../../utils/StyleConfig';
 import GS from '../../../utils/styles';
 import PressableIcon from '../pressableicon';
 
-const TopAppBars = ({
-  title,
-  isLeftTitle,
-  rightTitle,
-  isRightButton,
-  rightIcon,
-  onLeftClickListener,
-  onRightClickListener,
-  rightIconStyle,
-  hideBackIcon,
-}) => {
+const TopAppBars = () => {
   return (
     <SafeAreaView
       style={styles.saContainer}
@@ -27,7 +17,7 @@ const TopAppBars = ({
         style={styles.ytLogoStyle}
         resizeMode="contain"
       />
-      <View style={{flex: 1, backgroundColor: 'red'}} />
+      <View style={styles.spaceContainer} />
       <PressableIcon iconSource={AppImages.ic_cast} />
       <PressableIcon iconSource={AppImages.ic_bell} />
       <PressableIcon iconSource={AppImages.ic_search} />
@@ -47,6 +37,9 @@ const styles = StyleSheet.create({
     width: StyleConfig.countPixelRatio(89),
     height: StyleConfig.countPixelRatio(20),
     marginHorizontal: StyleConfig.smartWidthScale(12),
+  },
+  spaceContainer: {
+    flex: 1,
   },
   avtarText: {
     fontSize: StyleConfig.countPixelRatio(16),

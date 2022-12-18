@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
     tintColor: Color.white,
   },
   uploadIconStyle: {
-    height: StyleConfig.countPixelRatio(37),
-    width: StyleConfig.countPixelRatio(37),
+    height: StyleConfig.countPixelRatio(36),
+    width: StyleConfig.countPixelRatio(36),
+    marginBottom: StyleConfig.smartScale(5),
   },
   titleStyle: {
     fontFamily: StyleConfig.fontRegular,
