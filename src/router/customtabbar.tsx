@@ -5,6 +5,7 @@ import { FlatList, StyleSheet } from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 
 import AppImages from '../assets/images';
+import { bottomSheetRef } from '../utils/action';
 import { Always, Never } from '../utils/constant';
 import { Type_Of_TabBar } from '../utils/enum';
 import { String } from '../utils/string';
@@ -49,6 +50,9 @@ const CustomTabBar = (props: BottomTabBarProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const { navigation } = props;
 
+  const openSheet = () => {
+    bottomSheetRef.current?.snapToIndex(0);
+  }
   const onTabClick = useCallback((index: number) => {
     setSelectedIndex(index);
     switch (index) {
@@ -59,7 +63,7 @@ const CustomTabBar = (props: BottomTabBarProps) => {
         navigation.navigate(Routes.Short);
         break;
       case Type_Of_TabBar.Upload:
-        // handleSheetChanges();
+        openSheet()
         break;
       case Type_Of_TabBar.Subscriptions:
         navigation.navigate(Routes.Subscriptions);

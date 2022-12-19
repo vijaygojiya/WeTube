@@ -2,6 +2,7 @@ import moment from 'moment';
 import React from 'react';
 import { Alert, Image, ImageBackground, Pressable, Text, View } from 'react-native';
 import AppImages from '../../../assets/images';
+import { showToast } from '../../../utils/action';
 import { Color } from '../../../utils/color';
 import { dummyChannelPicutre } from '../../../utils/constant';
 import Method from '../../../utils/method';
@@ -52,7 +53,8 @@ const HomeVidoeListItem = (props: {
           </Text>
         </View>
         <PressableIcon iconSource={AppImages.ic_more_info} iconPress={()=> {
-          Alert.alert('','in dev')
+          // Alert.alert('','in dev')
+          showToast('testing.')
         }}  />
       </View>
     </Pressable>
