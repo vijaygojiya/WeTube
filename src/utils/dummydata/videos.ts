@@ -1,7 +1,7 @@
 export const videos = [
   {
     id: '1',
-    title: 'Big Buck Bunny',
+    title: 'Episode 606 - Taarak Mehta Ka Ooltah Chashmah - Full Episode | तारक मेहता का उल्टा चश्मा',
     thumbnailUrl:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png',
     duration: '8:18',
@@ -33,7 +33,8 @@ export const videos = [
   {
     id: '3',
     title: 'For Bigger Blazes',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    thumbnailUrl:
+      'https://images.unsplash.com/photo-1559705421-4ae9bf6fabb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dGh1bWJuYWlsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     duration: '8:18',
     uploadTime: 1659648855623,
     views: 969123,
@@ -80,7 +81,8 @@ export const videos = [
   {
     id: '6',
     title: 'For Bigger Blazes',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1563874257547-d19fbb71b46c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHRodW1ibmFpbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+    thumbnailUrl:
+      'https://images.unsplash.com/photo-1563874257547-d19fbb71b46c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHRodW1ibmFpbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
     duration: '8:18',
     uploadTime: 1665078059078,
     views: 59123,

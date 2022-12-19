@@ -1,4 +1,4 @@
-import {Color} from './color';
+import { Color } from './color';
 import StyleConfig from './StyleConfig';
 const GS = {
   text_light_blue_bold: {

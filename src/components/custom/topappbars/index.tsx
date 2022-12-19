@@ -1,21 +1,25 @@
 import React from 'react';
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import { Image, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
+
 import AppImages from '../../../assets/images';
-import {Color} from '../../../utils/color';
+import { Color } from '../../../utils/color';
 import StyleConfig from '../../../utils/StyleConfig';
 import GS from '../../../utils/styles';
 import PressableIcon from '../pressableicon';
+const NAVBAR_HEIGHT = 64;
+const STATUS_BAR_HEIGHT = Platform.select({ ios: 20, android: 24 });
 
 const TopAppBars = () => {
   return (
     <SafeAreaView
       style={styles.saContainer}
-      forceInset={{top: 'always', bottom: 'never'}}>
+      forceInset={{ top: 'always', bottom: 'never' }}
+    >
       <Image
         source={AppImages.yt_logo}
         style={styles.ytLogoStyle}
-        resizeMode="contain"
+        resizeMode='contain'
       />
       <View style={styles.spaceContainer} />
       <PressableIcon iconSource={AppImages.ic_cast} />

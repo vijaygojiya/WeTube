@@ -14,6 +14,7 @@ const AppImages = {
   ic_cast: require('./ic_cast.png'),
   ic_bell: require('./ic_bell.png'),
   ic_search: require('./ic_search.png'),
+  ic_more_info: require('./ic_more_info.png'),
 };
 
 export default AppImages;

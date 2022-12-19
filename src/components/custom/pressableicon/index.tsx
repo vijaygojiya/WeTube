@@ -1,16 +1,32 @@
-import { StyleSheet, Image, Pressable, ImageSourcePropType } from 'react-native';
 import React from 'react';
-import StyleConfig from '../../../utils/StyleConfig';
-import { Color } from '../../../utils/color';
+import {
+  Image,
+  ImageSourcePropType,
+  Pressable,
+  StyleSheet,
+} from 'react-native';
 
-const PressableIcon = (props: { iconSource: ImageSourcePropType; iconPress: () => void }) => {
+import { Color } from '../../../utils/color';
+import StyleConfig from '../../../utils/StyleConfig';
+
+const PressableIcon = (props: {
+  iconSource: ImageSourcePropType;
+  iconPress: () => void;
+}) => {
   const { iconSource, iconPress } = props;
   return (
-    <Pressable android_ripple={{ color: Color.subTitleColor, borderless: true, radius: 24 }} onPress={iconPress}>
+    <Pressable
+      android_ripple={{
+        color: Color.subTitleColor,
+        borderless: true,
+        radius: 24,
+      }}
+      onPress={iconPress}
+    >
       <Image
         source={iconSource}
         style={styles.iconStyle}
-        resizeMode="contain"
+        resizeMode='contain'
       />
     </Pressable>
   );

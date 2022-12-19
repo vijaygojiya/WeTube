@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import moment, { MomentInput } from 'moment';
 
 const Method = {
   savePref: (key: string, value: unknown) => {
@@ -10,6 +11,13 @@ const Method = {
 
   removePref: (key: string) => {
     AsyncStorage.removeItem(key);
+  },
+
+  getFormatedViewCount: (views: number) => {
+    return Intl.NumberFormat('en', { notation: 'compact' }).format(views);
+  },
+  getFormatedDate: (time: MomentInput) => {
+    return moment(time).fromNow(false);
   },
 };
 

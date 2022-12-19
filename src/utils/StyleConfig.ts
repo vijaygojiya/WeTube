@@ -1,6 +1,6 @@
-import {Dimensions, Platform} from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 const isIphone = Platform.OS === 'ios';
 const isAndroid = Platform.OS === 'android';
 const widthPer = width / 100;
