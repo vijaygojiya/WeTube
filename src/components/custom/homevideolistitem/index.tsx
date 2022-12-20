@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React from 'react';
+import React, { memo } from 'react';
 import { Alert, Image, ImageBackground, Pressable, Text, View } from 'react-native';
 import AppImages from '../../../assets/images';
 import { showToast } from '../../../utils/action';
@@ -24,6 +24,7 @@ const HomeVidoeListItem = (props: {
   isLive: boolean;
 }) => {
   const { thumbnailUrl, duration, title, author, uploadTime, views } = props;
+  console.log('renderin vide card');
 
   return (
     <Pressable android_ripple={{ color: Color.subTitleColor }}>
@@ -52,13 +53,13 @@ const HomeVidoeListItem = (props: {
             {Method.getFormatedDate(uploadTime)}{' '}
           </Text>
         </View>
-        <PressableIcon iconSource={AppImages.ic_more_info} iconPress={()=> {
+        <PressableIcon iconSource={AppImages.ic_more_info} iconPress={() => {
           // Alert.alert('','in dev')
           showToast('testing.')
-        }}  />
+        }} />
       </View>
     </Pressable>
   );
 };
 
-export default HomeVidoeListItem;
+export default memo(HomeVidoeListItem);
