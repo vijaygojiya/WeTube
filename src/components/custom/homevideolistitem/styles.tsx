@@ -6,7 +6,8 @@ import StyleConfig from '../../../utils/StyleConfig';
 export const styles = StyleSheet.create({
   thumbnailImageStyle: {
     width: StyleConfig.width,
-    height: StyleConfig.countPixelRatio(225),
+    // height: StyleConfig.countPixelRatio(225),
+    aspectRatio: 16/9,
     justifyContent: 'flex-end',
     backgroundColor: Color.bg2,
   },

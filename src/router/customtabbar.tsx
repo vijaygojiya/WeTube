@@ -5,7 +5,8 @@ import { FlatList, StyleSheet } from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 
 import AppImages from '../assets/images';
-import { bottomSheetRef } from '../utils/action';
+import { bottomSheetRef, homeScreenScrollToTop } from '../utils/action';
+import { Color } from '../utils/color';
 import { Always, Never } from '../utils/constant';
 import { Type_Of_TabBar } from '../utils/enum';
 import { String } from '../utils/string';
@@ -57,13 +58,17 @@ const CustomTabBar = (props: BottomTabBarProps) => {
     setSelectedIndex(index);
     switch (index) {
       case Type_Of_TabBar.Home:
-        navigation.navigate(Routes.Home);
+        if (selectedIndex === 0) {
+          homeScreenScrollToTop()
+        } else {
+          navigation.navigate(Routes.Home);
+        }
         break;
       case Type_Of_TabBar.Shorts:
         navigation.navigate(Routes.Short);
         break;
       case Type_Of_TabBar.Upload:
-        openSheet()
+        openSheet();
         break;
       case Type_Of_TabBar.Subscriptions:
         navigation.navigate(Routes.Subscriptions);
@@ -72,7 +77,7 @@ const CustomTabBar = (props: BottomTabBarProps) => {
         navigation.navigate(Routes.Library);
         break;
     }
-  }, []);
+  }, [selectedIndex]);
 
   function renderTabBarItem({ item, index }: { item: any; index: number }) {
     return (
@@ -114,9 +119,8 @@ export default CustomTabBar;
 
 const styles = StyleSheet.create({
   saContainer: {
-    backgroundColor: 'white',
-    borderTopColor: 'grey',
-    borderTopWidth: StyleConfig.countPixelRatio(0.3),
+    borderTopColor: Color.subTitleColor,
+    borderTopWidth: StyleConfig.countPixelRatio(1),
   },
   flTabContainer: {
     justifyContent: 'space-around',

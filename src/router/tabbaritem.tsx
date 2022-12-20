@@ -12,7 +12,7 @@ const TabBarItem = (props: any) => {
 
   const handelItemPress = useCallback(() => {
     onTabClick(index);
-  }, []);
+  }, [selectedIndex]);
 
   return (
     <Pressable
@@ -44,9 +44,10 @@ const styles = StyleSheet.create({
     backgroundColor: Color.balck,
   },
   iconStyle: {
-    height: StyleConfig.countPixelRatio(22),
-    width: StyleConfig.countPixelRatio(22),
-    marginTop: StyleConfig.smartScale(9),
+    height: StyleConfig.countPixelRatio(20),
+    width: StyleConfig.countPixelRatio(20),
+    marginTop: StyleConfig.smartScale(7),
+    margin: StyleConfig.countPixelRatio(4),
     tintColor: Color.white,
   },
   uploadIconStyle: {
@@ -56,8 +57,9 @@ const styles = StyleSheet.create({
   },
   titleStyle: {
     fontFamily: StyleConfig.fontRegular,
-    fontSize: StyleConfig.countPixelRatio(12),
-    marginBottom: StyleConfig.smartScale(4),
+    fontSize: StyleConfig.countPixelRatio(11),
+    marginBottom: StyleConfig.countPixelRatio(4),
+    marginHorizontal: StyleConfig.smartWidthScale(4),
     color: Color.titleColor,
   },
 });

@@ -4,8 +4,10 @@ import SafeAreaView from 'react-native-safe-area-view';
 
 import AppImages from '../../../assets/images';
 import { Color } from '../../../utils/color';
+import Method from '../../../utils/method';
 import StyleConfig from '../../../utils/StyleConfig';
 import GS from '../../../utils/styles';
+import { showToast } from '../../../utils/toast';
 import PressableIcon from '../pressableicon';
 const NAVBAR_HEIGHT = 64;
 const STATUS_BAR_HEIGHT = Platform.select({ ios: 20, android: 24 });
@@ -22,12 +24,17 @@ const TopAppBars = () => {
         resizeMode='contain'
       />
       <View style={styles.spaceContainer} />
-      <PressableIcon iconSource={AppImages.ic_cast} />
-      <PressableIcon iconSource={AppImages.ic_bell} />
-      <PressableIcon iconSource={AppImages.ic_search} />
-      <Pressable>
-        <Text style={styles.avtarText}>V</Text>
-      </Pressable>
+      <PressableIcon iconSource={AppImages.ic_bell} iconPress={function (): void {
+        Method.handleInDev('press bell');
+      }} />
+      <PressableIcon iconSource={AppImages.ic_search} iconPress={function (): void {
+        Method.handleInDev('press search');
+
+      }} />
+      <Text onPress={()=>{
+        Method.handleInDev('profile avtar');
+
+      }} style={styles.avtarText}>V</Text>
     </SafeAreaView>
   );
 };
@@ -46,12 +53,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   avtarText: {
-    fontSize: StyleConfig.countPixelRatio(16),
+    fontSize: StyleConfig.countPixelRatio(18),
     fontFamily: StyleConfig.fontRegular,
     backgroundColor: 'green',
-    paddingHorizontal: StyleConfig.countPixelRatio(6),
+    paddingVertical: StyleConfig.countPixelRatio(4),
+    paddingHorizontal: StyleConfig.countPixelRatio(11),
     marginHorizontal: StyleConfig.smartWidthScale(12),
-    borderRadius: 40,
+    borderRadius: StyleConfig.countPixelRatio(22),
   },
 });
 

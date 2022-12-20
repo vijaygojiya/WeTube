@@ -4,6 +4,7 @@ import { FlatList, NativeScrollEvent, NativeSyntheticEvent, Text, View } from 'r
 import HomeVidoeListItem from '../../../components/custom/homevideolistitem';
 import TopAppBars from '../../../components/custom/topappbars';
 import Collapsible from '../../../components/library/collapsible';
+import { homeFlatlistRef } from '../../../utils/action';
 import { videos } from '../../../utils/dummydata/videos';
 import { styles } from './styles';
 
@@ -11,7 +12,7 @@ const HomeScreen = () => {
   const [isHeaderHide, setHeaderHide] = useState<boolean>(false);
   const handleOnScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     let currentOffset = event.nativeEvent.contentOffset.y;
-    if (currentOffset === 0) {
+    if (currentOffset < 150) {
       setHeaderHide(false);
     } else {
       setHeaderHide(true)
@@ -34,6 +35,7 @@ const HomeScreen = () => {
         <TopAppBars />
       </Collapsible>
       <FlatList
+        ref={homeFlatlistRef}
         data={videos}
         renderItem={renderVideoListItem}
         keyExtractor={getKey}
