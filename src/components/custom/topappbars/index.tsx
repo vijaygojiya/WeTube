@@ -1,5 +1,12 @@
 import React from 'react';
-import { Image, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 
 import AppImages from '../../../assets/images';
@@ -24,17 +31,26 @@ const TopAppBars = () => {
         resizeMode='contain'
       />
       <View style={styles.spaceContainer} />
-      <PressableIcon iconSource={AppImages.ic_bell} iconPress={function (): void {
-        Method.handleInDev('press bell');
-      }} />
-      <PressableIcon iconSource={AppImages.ic_search} iconPress={function (): void {
-        Method.handleInDev('press search');
-
-      }} />
-      <Text onPress={()=>{
-        Method.handleInDev('profile avtar');
-
-      }} style={styles.avtarText}>V</Text>
+      <PressableIcon
+        iconSource={AppImages.ic_bell}
+        iconPress={function (): void {
+          Method.handleInDev('press bell');
+        }}
+      />
+      <PressableIcon
+        iconSource={AppImages.ic_search}
+        iconPress={function (): void {
+          Method.handleInDev('press search');
+        }}
+      />
+      <Text
+        onPress={() => {
+          Method.handleInDev('profile avtar');
+        }}
+        style={styles.avtarText}
+      >
+        V
+      </Text>
     </SafeAreaView>
   );
 };

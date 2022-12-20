@@ -1,6 +1,14 @@
 import moment from 'moment';
 import React, { memo } from 'react';
-import { Alert, Image, ImageBackground, Pressable, Text, View } from 'react-native';
+import {
+  Alert,
+  Image,
+  ImageBackground,
+  Pressable,
+  Text,
+  View,
+} from 'react-native';
+
 import AppImages from '../../../assets/images';
 import { showToast } from '../../../utils/action';
 import { Color } from '../../../utils/color';
@@ -53,10 +61,13 @@ const HomeVidoeListItem = (props: {
             {Method.getFormatedDate(uploadTime)}{' '}
           </Text>
         </View>
-        <PressableIcon iconSource={AppImages.ic_more_info} iconPress={() => {
-          // Alert.alert('','in dev')
-          showToast('testing.')
-        }} />
+        <PressableIcon
+          iconSource={AppImages.ic_more_info}
+          iconPress={() => {
+            // Alert.alert('','in dev')
+            showToast('testing.');
+          }}
+        />
       </View>
     </Pressable>
   );

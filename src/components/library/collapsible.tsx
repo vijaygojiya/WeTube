@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Animated, Easing } from 'react-native';
 
-
 const ANIMATED_EASING_PREFIXES = ['easeInOut', 'easeOut', 'easeIn'];
 
 export default class Collapsible extends Component {
@@ -26,7 +25,7 @@ export default class Collapsible extends Component {
     };
   }
 
-  componentDidUpdate(prevProps: { collapsed: any; }) {
+  componentDidUpdate(prevProps: { collapsed: any }) {
     if (prevProps.collapsed !== this.props.collapsed) {
       this.setState({ measured: false }, () =>
         this._componentDidUpdate(prevProps),
@@ -40,7 +39,7 @@ export default class Collapsible extends Component {
     this.unmounted = true;
   }
 
-  _componentDidUpdate(prevProps: { collapsed: any; collapsedHeight: any; }) {
+  _componentDidUpdate(prevProps: { collapsed: any; collapsedHeight: any }) {
     if (prevProps.collapsed !== this.props.collapsed) {
       this._toggleCollapsed(this.props.collapsed);
     } else if (
@@ -57,7 +56,7 @@ export default class Collapsible extends Component {
     this.contentHandle = ref;
   };
 
-  _measureContent(callback: { (contentHeight: any): void; (arg0: any): void; }) {
+  _measureContent(callback: { (contentHeight: any): void; (arg0: any): void }) {
     this.setState(
       {
         measuring: true,
@@ -157,7 +156,9 @@ export default class Collapsible extends Component {
     });
   }
 
-  _handleLayoutChange = (event: { nativeEvent: { layout: { height: any; }; }; }) => {
+  _handleLayoutChange = (event: {
+    nativeEvent: { layout: { height: any } };
+  }) => {
     const contentHeight = event.nativeEvent.layout.height;
     if (
       this.state.animating ||

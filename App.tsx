@@ -1,13 +1,14 @@
+import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
+
 import Toast from './src/components/Toast';
 
 import AppNavigator from './src/router';
 import { bottomSheetRef, toastRef } from './src/utils/action';
 import { Color } from './src/utils/color';
-import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 
 const App = () => {
   useEffect(() => {
@@ -23,13 +24,12 @@ const App = () => {
     }
   };
 
-    // ref
+  // ref
 
-    // variables
-    const snapPoints = useMemo(() => ['45%'], []);
-  
-    // callbacks
+  // variables
+  const snapPoints = useMemo(() => ['45%'], []);
 
+  // callbacks
 
   return (
     <GestureHandlerRootView style={styles.rootViewBackground}>

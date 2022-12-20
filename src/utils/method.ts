@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import moment, { MomentInput } from 'moment';
+
 import { showToast } from './toast';
 
 const Method = {
@@ -21,8 +22,8 @@ const Method = {
     return moment(time).fromNow(false);
   },
   handleInDev: (which: string) => {
-    showToast(`${which} is in develop`)
-  }
+    showToast(`${which} is in develop`);
+  },
 };
 
 export default Method;

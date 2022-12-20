@@ -1,12 +1,12 @@
-import React, { useState, useRef, useImperativeHandle, useEffect } from 'react';
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import {
-  StyleSheet,
-  View,
-  Text,
   Animated,
+  Platform,
+  StyleSheet,
+  Text,
   ToastAndroid,
   useWindowDimensions,
-  Platform,
+  View,
 } from 'react-native';
 
 interface Props {}
@@ -57,7 +57,7 @@ const Toast: React.FC<Props> = React.forwardRef((_props, ref) => {
   };
 
   const close = () => {
-    let delay = DURATION.LENGTH_SHORT;
+    const delay = DURATION.LENGTH_SHORT;
 
     if (!isShowing && !isShow) {
       return;
@@ -81,7 +81,7 @@ const Toast: React.FC<Props> = React.forwardRef((_props, ref) => {
       {isShow && Platform.OS !== 'android' && (
         <View
           style={[styles.container, { top: height - 120 }]}
-          pointerEvents="none"
+          pointerEvents='none'
         >
           <Animated.View style={[styles.content, { opacity: opacityValue }]}>
             <Text style={styles.text}>{toastText}fsd</Text>

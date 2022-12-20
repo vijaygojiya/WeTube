@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   thumbnailImageStyle: {
     width: StyleConfig.width,
     // height: StyleConfig.countPixelRatio(225),
-    aspectRatio: 16/9,
+    aspectRatio: 16 / 9,
     justifyContent: 'flex-end',
     backgroundColor: Color.bg2,
   },
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
   },
   textInfoContainer: {
     marginStart: StyleConfig.smartWidthScale(12),
-    flex:1,
+    flex: 1,
   },
   channelPictureStyle: {
     height: StyleConfig.countPixelRatio(40),

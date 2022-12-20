@@ -1,25 +1,24 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { FlatList, NativeScrollEvent, NativeSyntheticEvent, Text, View } from 'react-native';
+import React, { useCallback } from 'react';
+import { FlatList, Text, View } from 'react-native';
 
 import HomeVidoeListItem from '../../../components/custom/homevideolistitem';
 import TopAppBars from '../../../components/custom/topappbars';
-import Collapsible from '../../../components/library/collapsible';
+// import Collapsible from '../../../components/library/collapsible';
 import { homeFlatlistRef } from '../../../utils/action';
 import { videos } from '../../../utils/dummydata/videos';
 import { styles } from './styles';
 
 const HomeScreen = () => {
-  const [isHeaderHide, setHeaderHide] = useState<boolean>(false);
-  const handleOnScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    let currentOffset = event.nativeEvent.contentOffset.y;
-    if (currentOffset < 150) {
-      setHeaderHide(false);
-    } else {
-      setHeaderHide(true)
-    }
+  // const [isHeaderHide, setHeaderHide] = useState<boolean>(false);
+  // const handleOnScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+  //   let currentOffset = event.nativeEvent.contentOffset.y;
+  //   if (currentOffset < 150) {
+  //     setHeaderHide(false);
+  //   } else {
+  //     setHeaderHide(true)
+  //   }
 
-  }
-
+  // }
 
   const renderVideoListItem = ({ item }) => {
     return <HomeVidoeListItem {...item} />;
@@ -31,9 +30,9 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.screenBackground}>
-      <Collapsible collapsed={isHeaderHide} duration={600}  >
-        <TopAppBars />
-      </Collapsible>
+      {/* <Collapsible collapsed={isHeaderHide} duration={600}  > */}
+      <TopAppBars />
+      {/* </Collapsible> */}
       <FlatList
         ref={homeFlatlistRef}
         data={videos}
@@ -41,7 +40,7 @@ const HomeScreen = () => {
         keyExtractor={getKey}
         showsVerticalScrollIndicator={false}
         bounces={false}
-        onScroll={handleOnScroll}
+        // onScroll={handleOnScroll}
       />
     </View>
   );

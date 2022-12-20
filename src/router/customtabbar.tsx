@@ -53,31 +53,34 @@ const CustomTabBar = (props: BottomTabBarProps) => {
 
   const openSheet = () => {
     bottomSheetRef.current?.snapToIndex(0);
-  }
-  const onTabClick = useCallback((index: number) => {
-    setSelectedIndex(index);
-    switch (index) {
-      case Type_Of_TabBar.Home:
-        if (selectedIndex === 0) {
-          homeScreenScrollToTop()
-        } else {
-          navigation.navigate(Routes.Home);
-        }
-        break;
-      case Type_Of_TabBar.Shorts:
-        navigation.navigate(Routes.Short);
-        break;
-      case Type_Of_TabBar.Upload:
-        openSheet();
-        break;
-      case Type_Of_TabBar.Subscriptions:
-        navigation.navigate(Routes.Subscriptions);
-        break;
-      case Type_Of_TabBar.Library:
-        navigation.navigate(Routes.Library);
-        break;
-    }
-  }, [selectedIndex]);
+  };
+  const onTabClick = useCallback(
+    (index: number) => {
+      setSelectedIndex(index);
+      switch (index) {
+        case Type_Of_TabBar.Home:
+          if (selectedIndex === 0) {
+            homeScreenScrollToTop();
+          } else {
+            navigation.navigate(Routes.Home);
+          }
+          break;
+        case Type_Of_TabBar.Shorts:
+          navigation.navigate(Routes.Short);
+          break;
+        case Type_Of_TabBar.Upload:
+          openSheet();
+          break;
+        case Type_Of_TabBar.Subscriptions:
+          navigation.navigate(Routes.Subscriptions);
+          break;
+        case Type_Of_TabBar.Library:
+          navigation.navigate(Routes.Library);
+          break;
+      }
+    },
+    [selectedIndex],
+  );
 
   function renderTabBarItem({ item, index }: { item: any; index: number }) {
     return (
