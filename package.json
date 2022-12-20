@@ -7,13 +7,16 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "pretty": "prettier --write ."
   },
   "dependencies": {
+    "@gorhom/bottom-sheet": "4",
     "@react-native-async-storage/async-storage": "^1.17.11",
     "@react-navigation/bottom-tabs": "^6.5.2",
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.7",
+    "moment": "^2.29.4",
     "react": "18.1.0",
     "react-native": "0.70.6",
     "react-native-gesture-handler": "^2.8.0",
@@ -37,6 +40,7 @@
     "@typescript-eslint/parser": "^5.37.0",
     "babel-jest": "^26.6.3",
     "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.26.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "0.72.3",
     "react-test-renderer": "18.1.0",

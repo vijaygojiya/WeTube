@@ -1,10 +1,11 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
 import ProfileScreen from '../screens/others/profile';
+import { Color } from '../utils/color';
 import Routes from './routes';
 import TabNavigator from './tabnavigator';
-import {Color} from '../utils/color';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +22,8 @@ function AppNavigator() {
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
-        }}>
+        }}
+      >
         <Stack.Screen name={Routes.MainNav} component={TabNavigator} />
         <Stack.Screen name={Routes.Profile} component={ProfileScreen} />
       </Stack.Navigator>

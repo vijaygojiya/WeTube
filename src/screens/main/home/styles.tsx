@@ -1,5 +1,6 @@
-import {StyleSheet} from 'react-native';
-import {Color} from '../../../utils/color';
+import { StyleSheet } from 'react-native';
+
+import { Color } from '../../../utils/color';
 
 export const styles = StyleSheet.create({
   screenBackground: {
