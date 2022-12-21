@@ -2,8 +2,10 @@ import React from 'react';
 import {
   Image,
   ImageSourcePropType,
+  ImageStyle,
   Pressable,
   StyleSheet,
+  ViewStyle,
 } from 'react-native';
 
 import { Color } from '../../../utils/color';
@@ -12,20 +14,15 @@ import StyleConfig from '../../../utils/StyleConfig';
 const PressableIcon = (props: {
   iconSource: ImageSourcePropType;
   iconPress: () => void;
+  iconStyle?: ImageStyle;
+  containerStyle?: ViewStyle;
 }) => {
-  const { iconSource, iconPress } = props;
+  const { iconSource, iconPress, iconStyle, containerStyle } = props;
   return (
-    <Pressable
-      android_ripple={{
-        color: Color.subTitleColor,
-        borderless: true,
-        radius: 24,
-      }}
-      onPress={iconPress}
-    >
+    <Pressable onPress={iconPress} style={containerStyle}>
       <Image
         source={iconSource}
-        style={styles.iconStyle}
+        style={[styles.iconStyle, iconStyle]}
         resizeMode='contain'
       />
     </Pressable>

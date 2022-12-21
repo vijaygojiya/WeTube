@@ -15,6 +15,11 @@ const AppImages = {
   ic_bell: require('./ic_bell.png'),
   ic_search: require('./ic_search.png'),
   ic_more_info: require('./ic_more_info.png'),
+  ic_like: require('./ic_like.png'),
+  ic_share: require('./ic_share.png'),
+  ic_comment: require('./ic_comment.png'),
+  ic_camera: require('./ic_camera.png'),
+  ic_rotate: require('./ic_rotate.png'),
 };
 
 export default AppImages;

@@ -14,6 +14,7 @@ const TabNavigator = () => {
     <Tab.Navigator
       backBehavior='history'
       screenOptions={{
+        lazy: true,
         headerShown: false,
         tabBarHideOnKeyboard: true,
       }}
@@ -27,6 +28,9 @@ const TabNavigator = () => {
         component={HomeScreen}
       />
       <Tab.Screen
+        options={{
+          unmountOnBlur: true,
+        }}
         key='ShortScreenTab'
         name={Routes.Short}
         component={ShortsScreen}

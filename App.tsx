@@ -2,7 +2,9 @@ import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import changeNavigationBarColor, { hideNavigationBar } from 'react-native-navigation-bar-color';
+import changeNavigationBarColor, {
+  hideNavigationBar,
+} from 'react-native-navigation-bar-color';
 
 import Toast from './src/components/Toast';
 
@@ -20,7 +22,7 @@ const App = () => {
     try {
       await changeNavigationBarColor(Color.balck, false, true);
     } catch (e) {
-      showToast(`${e.message}`)
+      showToast(`${e.message}`);
     }
   };
 
@@ -46,7 +48,7 @@ const App = () => {
         backdropComponent={BottomSheetBackdrop}
         enablePanDownToClose={true}
         snapPoints={snapPoints}
-      // backgroundStyle={{backgroundColor: Color.balck}}
+        // backgroundStyle={{backgroundColor: Color.balck}}
       >
         <View style={styles.contentContainer}>
           <Text>Awesome 🎉</Text>
