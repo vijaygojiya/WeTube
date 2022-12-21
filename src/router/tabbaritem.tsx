@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   iconStyle: {
     height: StyleConfig.countPixelRatio(20),
     width: StyleConfig.countPixelRatio(20),
-    marginTop: StyleConfig.smartScale(7),
+    marginTop: StyleConfig.countPixelRatio(8),
     margin: StyleConfig.countPixelRatio(4),
     tintColor: Color.white,
   },

@@ -2,25 +2,25 @@ import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import changeNavigationBarColor from 'react-native-navigation-bar-color';
+import changeNavigationBarColor, { hideNavigationBar } from 'react-native-navigation-bar-color';
 
 import Toast from './src/components/Toast';
 
 import AppNavigator from './src/router';
 import { bottomSheetRef, toastRef } from './src/utils/action';
 import { Color } from './src/utils/color';
+import { showToast } from './src/utils/toast';
 
 const App = () => {
   useEffect(() => {
-    example();
+    updateNavigationBarColor();
   }, []);
 
-  const example = async () => {
+  const updateNavigationBarColor = async () => {
     try {
-      const response = await changeNavigationBarColor(Color.balck, false, true);
-      console.log('afds', response); // {success: true}
+      await changeNavigationBarColor(Color.balck, false, true);
     } catch (e) {
-      console.log(e); // {success: false}
+      showToast(`${e.message}`)
     }
   };
 
@@ -46,7 +46,7 @@ const App = () => {
         backdropComponent={BottomSheetBackdrop}
         enablePanDownToClose={true}
         snapPoints={snapPoints}
-        // backgroundStyle={{backgroundColor: Color.balck}}
+      // backgroundStyle={{backgroundColor: Color.balck}}
       >
         <View style={styles.contentContainer}>
           <Text>Awesome 🎉</Text>

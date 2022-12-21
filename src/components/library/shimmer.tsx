@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import { Animated, Platform, StyleSheet, View } from "react-native";
+import React, { PureComponent } from 'react';
+import { Animated, Platform, StyleSheet, View } from 'react-native';
 
 const getOutputRange = (width: number, isReversed: any) =>
   isReversed ? [width, -width] : [-width, width];
@@ -15,9 +15,9 @@ class ShimmerPlaceholder extends PureComponent {
         toValue: 1,
         delay,
         duration,
-        useNativeDriver: Platform.OS !== "web",
+        useNativeDriver: Platform.OS !== 'web',
         isInteraction,
-      })
+      }),
     );
   };
   animatedValue = this.getAnimated();
@@ -39,11 +39,30 @@ ShimmerPlaceholder.defaultProps = {
   isInteraction: true,
 };
 
-const BasedShimmerPlaceholder = (props: { width?: 200 | undefined; height?: 15 | undefined; shimmerColors?: string[] | undefined; isReversed?: false | undefined; stopAutoRun?: false | undefined; visible: any; location?: number[] | undefined; style: any; contentStyle: any; shimmerStyle: any; LinearGradient?: typeof View | undefined; children: any; animatedValue: any; beginShimmerPosition: any; shimmerWidthPercent?: 1 | undefined; containerProps: any; shimmerContainerProps: any; childrenContainerProps: any; }) => {
+const BasedShimmerPlaceholder = (props: {
+  width?: 200 | undefined;
+  height?: 15 | undefined;
+  shimmerColors?: string[] | undefined;
+  isReversed?: false | undefined;
+  stopAutoRun?: false | undefined;
+  visible: any;
+  location?: number[] | undefined;
+  style: any;
+  contentStyle: any;
+  shimmerStyle: any;
+  LinearGradient?: typeof View | undefined;
+  children: any;
+  animatedValue: any;
+  beginShimmerPosition: any;
+  shimmerWidthPercent?: 1 | undefined;
+  containerProps: any;
+  shimmerContainerProps: any;
+  childrenContainerProps: any;
+}) => {
   const {
     width = 200,
     height = 15,
-    shimmerColors = ["#ebebeb", "#c5c5c5", "#ebebeb"],
+    shimmerColors = ['#ebebeb', '#c5c5c5', '#ebebeb'],
     isReversed = false,
     stopAutoRun = false,
     visible,
@@ -134,7 +153,7 @@ const BasedShimmerPlaceholder = (props: { width?: 200 | undefined; height?: 15 |
 
 const styles = StyleSheet.create({
   container: {
-    overflow: "hidden",
+    overflow: 'hidden',
   },
 });
 

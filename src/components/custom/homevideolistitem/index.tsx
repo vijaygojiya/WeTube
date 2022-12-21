@@ -32,14 +32,9 @@ const HomeVidoeListItem = (props: {
   isLive: boolean;
 }) => {
   const { thumbnailUrl, duration, title, author, uploadTime, views } = props;
-  console.log('renderin vide card');
-
   return (
     <Pressable android_ripple={{ color: Color.subTitleColor }}>
       <ImageBackground
-        onError={(e) => {
-          console.log('eeeethumbnailUrle', thumbnailUrl, e);
-        }}
         source={{ uri: thumbnailUrl }}
         style={styles.thumbnailImageStyle}
       >

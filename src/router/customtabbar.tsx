@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
   saContainer: {
     borderTopColor: Color.subTitleColor,
     borderTopWidth: StyleConfig.countPixelRatio(1),
+    // display:'none'
   },
   flTabContainer: {
     justifyContent: 'space-around',
