@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
     backgroundColor: Color.balck,
   },
   iconStyle: {
-    height: StyleConfig.countPixelRatio(20),
-    width: StyleConfig.countPixelRatio(20),
+    height: StyleConfig.countPixelRatio(24),
+    width: StyleConfig.countPixelRatio(24),
     marginTop: StyleConfig.countPixelRatio(8),
     margin: StyleConfig.countPixelRatio(4),
     tintColor: Color.white,
