@@ -8,8 +8,8 @@ export const showToast = (text: string) => {
   toastRef.current?.show(text);
 };
 
-export const bottomSheetRef = React.createRef<BottomSheet>(null);
-export const homeFlatlistRef = React.createRef<FlatList>(null);
+export const bottomSheetRef = React.createRef<BottomSheet>();
+export const homeFlatlistRef = React.createRef<FlatList>();
 
 export const homeScreenScrollToTop = () => {
   homeFlatlistRef?.current?.scrollToOffset({ animated: true, offset: 0 });

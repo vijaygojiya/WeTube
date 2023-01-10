@@ -1,51 +1,98 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { Dimensions, FlatList } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View } from 'react-native';
+import SwiperFlatList from 'react-native-swiper-flatlist';
+import AppImages from '../../../assets/images';
+import PressableIcon from '../../../components/custom/pressableicon';
 
 import ShortsVideoListItem from '../../../components/custom/shortsvideolistitem';
-import { videos } from '../../../utils/dummydata/videos';
-import StyleConfig from '../../../utils/StyleConfig';
+import Method from '../../../utils/method';
+import { styles } from './styles';
 
+const headerIcon = [
+  {
+    icon: AppImages.ic_search,
+  },
+  {
+    icon: AppImages.ic_camera,
+  },
+  {
+    icon: AppImages.ic_more_info,
+  },
+];
 const shortsVideo = require('../../../utils/dummydata/shorts.json');
 const ShortsScreen = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const renderShortItem = useCallback(
-    ({ item, index }) => {
-      return (
-        <ShortsVideoListItem
-          {...item}
-          index={index}
-          selectedIndex={selectedIndex}
-        />
-      );
-    },
-    [selectedIndex],
-  );
+  const renderShortItem = ({ item, index }) => {
+    return (
+      <ShortsVideoListItem
+        {...item}
+        index={index}
+        selectedIndex={selectedIndex}
+      />
+    );
+  };
 
-  const onViewRef = useRef((viewableItems: any) => {
-    if (viewableItems?.viewableItems?.length > 0) {
-      setSelectedIndex(viewableItems.viewableItems[0].index || 0);
-    }
-  });
-  const viewConfigRef = useRef({ viewAreaCoveragePercentThreshold: 80 });
+  const handleChangeIndexValue = ({ index }: { index: number }) => {
+    setSelectedIndex(index);
+  };
 
   return (
-    <FlatList
-      data={shortsVideo.videos}
-      renderItem={renderShortItem}
-      getItemLayout={(_data, index) => ({
-        length: StyleConfig.height,
-        offset: StyleConfig.height * index,
-        index,
-      })}
-      showsVerticalScrollIndicator={false}
-      decelerationRate='fast'
-      snapToStart={true}
-      snapToAlignment={'start'}
-      pagingEnabled={true}
-      onViewableItemsChanged={onViewRef.current}
-      viewabilityConfig={viewConfigRef.current}
-    />
+    <View style={{ flex: 1 }}>
+      <View
+        style={{
+          position: 'absolute',
+          top: 10,
+          left: 0,
+          right: 0,
+          flexDirection: 'row',
+          alignItems: 'center',
+          zIndex: 33,
+        }}
+      >
+        <Text style={{ flex: 1 }}>Shorts</Text>
+        {headerIcon.map((item, index) => {
+          const { icon } = item;
+          return (
+            <PressableIcon
+              key={index}
+              iconSource={icon}
+              iconPress={function (): void {
+                Method.handleInDev('icon click');
+              }}
+            />
+          );
+        })}
+      </View>
+      <View style={styles.flContainer}>
+        <SwiperFlatList
+          onChangeIndex={handleChangeIndexValue}
+          vertical={true}
+          keyExtractor={(item, index) => '' + index}
+          data={shortsVideo.videos}
+          renderItem={renderShortItem}
+          onEndReachedThreshold={20}
+          removeClippedSubviews={true}
+        />
+        {/*   <FlatList
+          data={shortsVideo.videos}
+          renderItem={renderShortItem}
+          getItemLayout={(_data, index) => ({
+            length: StyleConfig.height - StyleConfig.tabBarHeight,
+            offset: StyleConfig.height - StyleConfig.tabBarHeight * index,
+            index,
+          })}
+          showsVerticalScrollIndicator={false}
+          pagingEnabled={true}
+          snapToInterval={StyleConfig.height - StyleConfig.tabBarHeight}
+          onViewableItemsChanged={onViewRef.current}
+          viewabilityConfig={viewConfigRef.current}
+          automaticallyAdjustContentInsets={true}
+          onEndReachedThreshold={20}
+          removeClippedSubviews={true}
+        />*/}
+      </View>
+    </View>
   );
 };
 

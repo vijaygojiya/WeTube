@@ -36,5 +36,6 @@ const styles = StyleSheet.create({
     height: StyleConfig.countPixelRatio(24),
     width: StyleConfig.countPixelRatio(24),
     margin: StyleConfig.countPixelRatio(12),
+    tintColor: Color.white,
   },
 });

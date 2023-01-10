@@ -56,5 +56,5 @@ export default {
   isTab: isTablet(),
   isIphone,
   isAndroid,
-  tabBarHeight: 48 * ratioCount,
+  tabBarHeight: 50 * ratioCount,
 };

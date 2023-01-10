@@ -39,19 +39,7 @@ const controlButton = [
   },
 ];
 
-const headerIcon = [
-  {
-    icon: AppImages.ic_search,
-  },
-  {
-    icon: AppImages.ic_camera,
-  },
-  {
-    icon: AppImages.ic_more_info,
-  },
-];
 
-// const ScreenHeight = Dimensions.get('').height;
 const ShortsVideoListItem = (props: {
   id: string;
   title: string;
@@ -70,34 +58,17 @@ const ShortsVideoListItem = (props: {
   const { sources, thumb, index, selectedIndex } = props;
 
   return (
-    <>
-      {/* <Video
-        // paused={index === selectedIndex ? false : true}
-        paused={true}
+    <View style={{flex:1}} >
+      <Video
+        paused={index === selectedIndex ? false : true}
+        // paused={true}
         source={{ uri: sources[0] }}
         poster={thumb}
         style={styles.video}
         resizeMode='cover'
         posterResizeMode='cover'
-        // fullscreen={true}
-      /> */}
-      <Image source={{ uri: thumb }} style={styles.video} />
+      />
       <View style={styles.controlOverlayContainer}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Text style={{ flex: 1 }}>Shorts</Text>
-          {headerIcon.map((item, index) => {
-            const { icon } = item;
-            return (
-              <PressableIcon
-                key={index}
-                iconSource={icon}
-                iconPress={function (): void {
-                  Method.handleInDev('icon click');
-                }}
-              />
-            );
-          })}
-        </View>
         <View style={styles.spaceContainer}>
           {controlButton.map((item, index) => {
             return (
@@ -106,7 +77,7 @@ const ShortsVideoListItem = (props: {
           })}
         </View>
       </View>
-    </>
+    </View>
   );
 };
 
