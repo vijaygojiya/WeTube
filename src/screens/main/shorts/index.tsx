@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
-import SwiperFlatList from 'react-native-swiper-flatlist';
+import { FlatList, Text, View } from 'react-native';
 import AppImages from '../../../assets/images';
 import PressableIcon from '../../../components/custom/pressableicon';
 
@@ -65,15 +64,15 @@ const ShortsScreen = () => {
         })}
       </View>
       <View style={styles.flContainer}>
-        <SwiperFlatList
-          onChangeIndex={handleChangeIndexValue}
-          vertical={true}
+        {/* <FlatList
+          // onChangeIndex={handleChangeIndexValue}
+          // vertical={true}
           keyExtractor={(item, index) => '' + index}
           data={shortsVideo.videos}
           renderItem={renderShortItem}
           onEndReachedThreshold={20}
           removeClippedSubviews={true}
-        />
+        /> */}
         {/*   <FlatList
           data={shortsVideo.videos}
           renderItem={renderShortItem}
