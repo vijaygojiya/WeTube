@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React, { memo } from 'react';
+import React, {memo} from 'react';
 import {
   Alert,
   Image,
@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 
 import AppImages from '../../../assets/images';
-import { showToast } from '../../../utils/action';
-import { Color } from '../../../utils/color';
-import { dummyChannelPicutre } from '../../../utils/constant';
+import {showToast} from '../../../utils/action';
+import {Color} from '../../../utils/color';
+import {dummyChannelPicutre} from '../../../utils/constant';
 import Method from '../../../utils/method';
 import PressableIcon from '../pressableicon';
 
-import { styles } from './styles';
+import {styles} from './styles';
 
 const HomeVidoeListItem = (props: {
   id: string;
@@ -31,13 +31,12 @@ const HomeVidoeListItem = (props: {
   subscriber: string;
   isLive: boolean;
 }) => {
-  const { thumbnailUrl, duration, title, author, uploadTime, views } = props;
+  const {thumbnailUrl, duration, title, author, uploadTime, views} = props;
   return (
-    <Pressable android_ripple={{ color: Color.subTitleColor }}>
+    <Pressable android_ripple={{color: Color.subTitleColor}}>
       <ImageBackground
-        source={{ uri: thumbnailUrl }}
-        style={styles.thumbnailImageStyle}
-      >
+        source={{uri: thumbnailUrl}}
+        style={styles.thumbnailImageStyle}>
         <Text style={styles.durationTextStyle}>{duration}</Text>
       </ImageBackground>
       <View style={styles.footerContainer}>

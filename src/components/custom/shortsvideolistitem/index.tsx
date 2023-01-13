@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useRef } from 'react';
+import React, {memo, useMemo, useRef} from 'react';
 import {
   Image,
   ImageSourcePropType,
@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Video from 'react-native-video';
 import AppImages from '../../../assets/images';
-import { Color } from '../../../utils/color';
+import {Color} from '../../../utils/color';
 import Method from '../../../utils/method';
 
 import StyleConfig from '../../../utils/StyleConfig';
@@ -39,7 +39,6 @@ const controlButton = [
   },
 ];
 
-
 const ShortsVideoListItem = (props: {
   id: string;
   title: string;
@@ -55,18 +54,18 @@ const ShortsVideoListItem = (props: {
   selectedIndex: number;
   index: number;
 }) => {
-  const { sources, thumb, index, selectedIndex } = props;
+  const {sources, thumb, index, selectedIndex} = props;
 
   return (
-    <View style={{flex:1}} >
+    <View style={{flex: 1}}>
       <Video
         paused={index === selectedIndex ? false : true}
         // paused={true}
-        source={{ uri: sources[0] }}
+        source={{uri: sources[0]}}
         poster={thumb}
         style={styles.video}
-        resizeMode='cover'
-        posterResizeMode='cover'
+        resizeMode="cover"
+        posterResizeMode="cover"
       />
       <View style={styles.controlOverlayContainer}>
         <View style={styles.spaceContainer}>

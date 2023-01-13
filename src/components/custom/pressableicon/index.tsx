@@ -8,7 +8,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import { Color } from '../../../utils/color';
+import {Color} from '../../../utils/color';
 import StyleConfig from '../../../utils/StyleConfig';
 
 const PressableIcon = (props: {
@@ -17,13 +17,13 @@ const PressableIcon = (props: {
   iconStyle?: ImageStyle;
   containerStyle?: ViewStyle;
 }) => {
-  const { iconSource, iconPress, iconStyle, containerStyle } = props;
+  const {iconSource, iconPress, iconStyle, containerStyle} = props;
   return (
     <Pressable onPress={iconPress} style={containerStyle}>
       <Image
         source={iconSource}
         style={[styles.iconStyle, iconStyle]}
-        resizeMode='contain'
+        resizeMode="contain"
       />
     </Pressable>
   );

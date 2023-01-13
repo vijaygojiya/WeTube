@@ -1,4 +1,4 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 
 import HomeScreen from '../screens/main/home';
@@ -12,18 +12,17 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
   return (
     <Tab.Navigator
-      backBehavior='history'
+      backBehavior="history"
       screenOptions={{
         lazy: true,
         headerShown: false,
         tabBarHideOnKeyboard: true,
       }}
-      tabBar={(props) => {
+      tabBar={props => {
         return <CustomTabBar {...props} />;
-      }}
-    >
+      }}>
       <Tab.Screen
-        key='HomeScreenTab'
+        key="HomeScreenTab"
         name={Routes.Home}
         component={HomeScreen}
       />
@@ -31,17 +30,17 @@ const TabNavigator = () => {
         options={{
           unmountOnBlur: true,
         }}
-        key='ShortScreenTab'
+        key="ShortScreenTab"
         name={Routes.Short}
         component={ShortsScreen}
       />
       <Tab.Screen
-        key='SubscriptionsScreenTab'
+        key="SubscriptionsScreenTab"
         name={Routes.Subscriptions}
         component={SubscriptionsScreen}
       />
       <Tab.Screen
-        key='LibraryScreenTab'
+        key="LibraryScreenTab"
         name={Routes.Library}
         component={LibraryScreen}
       />

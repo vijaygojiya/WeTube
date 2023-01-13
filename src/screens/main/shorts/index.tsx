@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import {FlatList, Text, View} from 'react-native';
 import AppImages from '../../../assets/images';
 import PressableIcon from '../../../components/custom/pressableicon';
 
 import ShortsVideoListItem from '../../../components/custom/shortsvideolistitem';
 import Method from '../../../utils/method';
-import { styles } from './styles';
+import {styles} from './styles';
 
 const headerIcon = [
   {
@@ -22,7 +22,7 @@ const shortsVideo = require('../../../utils/dummydata/shorts.json');
 const ShortsScreen = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const renderShortItem = ({ item, index }) => {
+  const renderShortItem = ({item, index}) => {
     return (
       <ShortsVideoListItem
         {...item}
@@ -32,12 +32,12 @@ const ShortsScreen = () => {
     );
   };
 
-  const handleChangeIndexValue = ({ index }: { index: number }) => {
+  const handleChangeIndexValue = ({index}: {index: number}) => {
     setSelectedIndex(index);
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <View
         style={{
           position: 'absolute',
@@ -47,11 +47,10 @@ const ShortsScreen = () => {
           flexDirection: 'row',
           alignItems: 'center',
           zIndex: 33,
-        }}
-      >
-        <Text style={{ flex: 1 }}>Shorts</Text>
+        }}>
+        <Text style={{flex: 1}}>Shorts</Text>
         {headerIcon.map((item, index) => {
-          const { icon } = item;
+          const {icon} = item;
           return (
             <PressableIcon
               key={index}

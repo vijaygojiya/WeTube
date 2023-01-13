@@ -1,11 +1,11 @@
-import React, { memo, useCallback, useMemo } from 'react';
-import { Image, Pressable, StyleSheet, Text } from 'react-native';
+import React, {memo, useCallback, useMemo} from 'react';
+import {Image, Pressable, StyleSheet, Text} from 'react-native';
 
-import { Color } from '../utils/color';
+import {Color} from '../utils/color';
 import StyleConfig from '../utils/StyleConfig';
 
 const TabBarItem = (props: any) => {
-  const { activeIcon, inActiveIcon, title, index, selectedIndex, onTabClick } =
+  const {activeIcon, inActiveIcon, title, index, selectedIndex, onTabClick} =
     props;
   const isUploadIcon = useMemo(() => index === 2, []);
   const isSelected = useMemo(() => selectedIndex === index, [selectedIndex]);
@@ -22,12 +22,11 @@ const TabBarItem = (props: any) => {
         radius: 40,
       }}
       style={styles.container}
-      onPress={handelItemPress}
-    >
+      onPress={handelItemPress}>
       <Image
         source={isSelected ? activeIcon : inActiveIcon}
         style={[styles.iconStyle, isUploadIcon ? styles.uploadIconStyle : {}]}
-        resizeMode='contain'
+        resizeMode="contain"
       />
       {isUploadIcon ? null : <Text style={[styles.titleStyle]}>{title}</Text>}
     </Pressable>

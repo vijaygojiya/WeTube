@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { Color } from '../../../utils/color';
+import {StyleSheet} from 'react-native';
+import {Color} from '../../../utils/color';
 import StyleConfig from '../../../utils/StyleConfig';
 
 export const styles = StyleSheet.create({
@@ -15,10 +15,10 @@ export const styles = StyleSheet.create({
     margin: StyleConfig.countPixelRatio(9),
   },
   dislikeIconStyle: {
-    transform: [{ rotateY: '180deg' }, { rotateX: '180deg' }],
+    transform: [{rotateY: '180deg'}, {rotateX: '180deg'}],
   },
   shareIconStyle: {
-    transform: [{ rotateY: '180deg' }],
+    transform: [{rotateY: '180deg'}],
   },
   titleStyle: {
     fontFamily: StyleConfig.fontRegular,

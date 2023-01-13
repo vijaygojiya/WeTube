@@ -1,12 +1,12 @@
-import React, { useCallback } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import React, {useCallback} from 'react';
+import {FlatList, Text, View} from 'react-native';
 
 import HomeVidoeListItem from '../../../components/custom/homevideolistitem';
 import TopAppBars from '../../../components/custom/topappbars';
 // import Collapsible from '../../../components/library/collapsible';
-import { homeFlatlistRef } from '../../../utils/action';
-import { videos } from '../../../utils/dummydata/videos';
-import { styles } from './styles';
+import {homeFlatlistRef} from '../../../utils/action';
+import {videos} from '../../../utils/dummydata/videos';
+import {styles} from './styles';
 
 const HomeScreen = () => {
   // const [isHeaderHide, setHeaderHide] = useState<boolean>(false);
@@ -20,7 +20,7 @@ const HomeScreen = () => {
 
   // }
 
-  const renderVideoListItem = ({ item }) => {
+  const renderVideoListItem = ({item}) => {
     return <HomeVidoeListItem {...item} />;
   };
 

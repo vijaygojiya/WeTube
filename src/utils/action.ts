@@ -1,6 +1,6 @@
 import BottomSheet from '@gorhom/bottom-sheet';
 import * as React from 'react';
-import { FlatList } from 'react-native';
+import {FlatList} from 'react-native';
 
 export const toastRef = React.createRef<any>();
 
@@ -12,5 +12,5 @@ export const bottomSheetRef = React.createRef<BottomSheet>();
 export const homeFlatlistRef = React.createRef<FlatList>();
 
 export const homeScreenScrollToTop = () => {
-  homeFlatlistRef?.current?.scrollToOffset({ animated: true, offset: 0 });
+  homeFlatlistRef?.current?.scrollToOffset({animated: true, offset: 0});
 };

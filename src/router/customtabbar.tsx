@@ -1,15 +1,15 @@
-import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import React, { useCallback, useState } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
+import React, {useCallback, useState} from 'react';
+import {FlatList, StyleSheet} from 'react-native';
 
 import SafeAreaView from 'react-native-safe-area-view';
 
 import AppImages from '../assets/images';
-import { bottomSheetRef, homeScreenScrollToTop } from '../utils/action';
-import { Color } from '../utils/color';
-import { Always, Never } from '../utils/constant';
-import { Type_Of_TabBar } from '../utils/enum';
-import { String } from '../utils/string';
+import {bottomSheetRef, homeScreenScrollToTop} from '../utils/action';
+import {Color} from '../utils/color';
+import {Always, Never} from '../utils/constant';
+import {Type_Of_TabBar} from '../utils/enum';
+import {String} from '../utils/string';
 import StyleConfig from '../utils/StyleConfig';
 import Routes from './routes';
 import TabBarItem from './tabbaritem';
@@ -49,7 +49,7 @@ const TabBarList = [
 
 const CustomTabBar = (props: BottomTabBarProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const { navigation } = props;
+  const {navigation} = props;
 
   const openSheet = () => {
     bottomSheetRef.current?.snapToIndex(0);
@@ -82,7 +82,7 @@ const CustomTabBar = (props: BottomTabBarProps) => {
     [selectedIndex],
   );
 
-  function renderTabBarItem({ item, index }: { item: any; index: number }) {
+  function renderTabBarItem({item, index}: {item: any; index: number}) {
     return (
       <TabBarItem
         {...item}
@@ -101,15 +101,14 @@ const CustomTabBar = (props: BottomTabBarProps) => {
 
   return (
     <SafeAreaView
-      forceInset={{ top: Never, bottom: Always }}
-      style={styles.saContainer}
-    >
+      forceInset={{top: Never, bottom: Always}}
+      style={styles.saContainer}>
       <FlatList
         data={TabBarList}
         horizontal={true}
         renderItem={renderTabBarItem}
         keyExtractor={listKeys}
-        overScrollMode='never'
+        overScrollMode="never"
         showsHorizontalScrollIndicator={false}
         bounces={false}
         contentContainerStyle={styles.flTabContainer}

@@ -1,7 +1,7 @@
-import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
-import React, { useCallback, useEffect, useMemo, useRef } from 'react';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import BottomSheet, {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import React, {useCallback, useEffect, useMemo, useRef} from 'react';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import changeNavigationBarColor, {
   hideNavigationBar,
 } from 'react-native-navigation-bar-color';
@@ -9,9 +9,9 @@ import changeNavigationBarColor, {
 import Toast from './src/components/Toast';
 
 import AppNavigator from './src/router';
-import { bottomSheetRef, toastRef } from './src/utils/action';
-import { Color } from './src/utils/color';
-import { showToast } from './src/utils/toast';
+import {bottomSheetRef, toastRef} from './src/utils/action';
+import {Color} from './src/utils/color';
+import {showToast} from './src/utils/toast';
 
 const App = () => {
   useEffect(() => {
@@ -38,10 +38,10 @@ const App = () => {
       <StatusBar
         animated={true}
         backgroundColor={Color.balck}
-        barStyle='light-content'
+        barStyle="light-content"
       />
       <AppNavigator />
-      <Toast {...{ ref: toastRef }} />
+      <Toast {...{ref: toastRef}} />
       <BottomSheet
         ref={bottomSheetRef}
         index={-1}

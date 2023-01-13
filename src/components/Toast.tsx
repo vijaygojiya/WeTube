@@ -1,4 +1,4 @@
-import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
+import React, {useEffect, useImperativeHandle, useRef, useState} from 'react';
 import {
   Animated,
   Platform,
@@ -17,7 +17,7 @@ export const DURATION = {
 };
 
 const Toast: React.FC<Props> = React.forwardRef((_props, ref) => {
-  const { height } = useWindowDimensions();
+  const {height} = useWindowDimensions();
 
   const [isShow, setShow] = useState<boolean>(false);
   const [toastText, setToastText] = useState<string>('');
@@ -80,10 +80,9 @@ const Toast: React.FC<Props> = React.forwardRef((_props, ref) => {
     <>
       {isShow && Platform.OS !== 'android' && (
         <View
-          style={[styles.container, { top: height - 120 }]}
-          pointerEvents='none'
-        >
-          <Animated.View style={[styles.content, { opacity: opacityValue }]}>
+          style={[styles.container, {top: height - 120}]}
+          pointerEvents="none">
+          <Animated.View style={[styles.content, {opacity: opacityValue}]}>
             <Text style={styles.text}>{toastText}fsd</Text>
           </Animated.View>
         </View>

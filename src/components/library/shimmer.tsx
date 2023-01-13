@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { Animated, Platform, StyleSheet, View } from 'react-native';
+import React, {PureComponent} from 'react';
+import {Animated, Platform, StyleSheet, View} from 'react-native';
 
 const getOutputRange = (width: number, isReversed: any) =>
   isReversed ? [width, -width] : [-width, width];
@@ -9,7 +9,7 @@ class ShimmerPlaceholder extends PureComponent {
     beginShimmerPosition: new Animated.Value(-1),
   };
   getAnimated = () => {
-    const { delay, duration, isInteraction } = this.props;
+    const {delay, duration, isInteraction} = this.props;
     return Animated.loop(
       Animated.timing(this.state.beginShimmerPosition, {
         toValue: 1,
@@ -106,34 +106,30 @@ const BasedShimmerPlaceholder = (props: {
   return (
     <View
       style={[
-        !visible && { height, width },
+        !visible && {height, width},
         styles.container,
         !visible && shimmerStyle,
         style,
       ]}
-      {...containerProps}
-    >
+      {...containerProps}>
       {/* Force render children to restrict rendering twice */}
       <View
         style={[
-          !visible && { width: 0, height: 0, opacity: 0 },
+          !visible && {width: 0, height: 0, opacity: 0},
           visible && contentStyle,
         ]}
-        {...childrenContainerProps}
-      >
+        {...childrenContainerProps}>
         {children}
       </View>
       {!visible && (
         <View
-          style={{ flex: 1, backgroundColor: shimmerColors[0] }}
-          {...shimmerContainerProps}
-        >
+          style={{flex: 1, backgroundColor: shimmerColors[0]}}
+          {...shimmerContainerProps}>
           <Animated.View
-            style={{ flex: 1, transform: [{ translateX: linearTranslate }] }}
-          >
+            style={{flex: 1, transform: [{translateX: linearTranslate}]}}>
             <LinearGradient
               colors={shimmerColors}
-              style={{ flex: 1, width: width * shimmerWidthPercent }}
+              style={{flex: 1, width: width * shimmerWidthPercent}}
               start={{
                 x: -1,
                 y: 0.5,
