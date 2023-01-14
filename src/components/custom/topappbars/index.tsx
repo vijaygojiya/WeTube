@@ -1,16 +1,11 @@
 import React from 'react';
-import {Image, Platform, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 
 import AppImages from '../../../assets/images';
-import {Color} from '../../../utils/color';
 import Method from '../../../utils/method';
 import StyleConfig from '../../../utils/StyleConfig';
-import GS from '../../../utils/styles';
-import {showToast} from '../../../utils/toast';
 import PressableIcon from '../pressableicon';
-const NAVBAR_HEIGHT = 64;
-const STATUS_BAR_HEIGHT = Platform.select({ios: 20, android: 24});
 
 const TopAppBars = () => {
   return (
@@ -50,6 +45,7 @@ const styles = StyleSheet.create({
   saContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    height: (58 * 2) / 2,
   },
   ytLogoStyle: {
     width: StyleConfig.countPixelRatio(89),

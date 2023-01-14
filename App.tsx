@@ -1,10 +1,8 @@
 import BottomSheet, {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
-import React, {useCallback, useEffect, useMemo, useRef} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import changeNavigationBarColor, {
-  hideNavigationBar,
-} from 'react-native-navigation-bar-color';
+import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
 import Toast from './src/components/Toast';
 

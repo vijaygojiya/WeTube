@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FlatList, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import AppImages from '../../../assets/images';
 import PressableIcon from '../../../components/custom/pressableicon';
 

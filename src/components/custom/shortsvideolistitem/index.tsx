@@ -1,20 +1,10 @@
-import React, {memo, useMemo, useRef} from 'react';
-import {
-  Image,
-  ImageSourcePropType,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import React, {memo} from 'react';
+import {StyleSheet, View} from 'react-native';
 import Video from 'react-native-video';
 import AppImages from '../../../assets/images';
-import {Color} from '../../../utils/color';
-import Method from '../../../utils/method';
 
 import StyleConfig from '../../../utils/StyleConfig';
 import IconWithLabel from '../iconwithlabel';
-import PressableIcon from '../pressableicon';
 
 const controlButton = [
   {
