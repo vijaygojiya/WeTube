@@ -3,8 +3,8 @@ const Routes = {
   Short: 'Short',
   Subscriptions: 'Subscriptions',
   Library: 'Library',
-  MainNav: 'MainNav',
-  Profile: 'Profile',
+  MainNav: 'MainNav' as 'MainNav',
+  Profile: 'Profile' as 'Profile',
 };
 
 export default Routes;

@@ -1,4 +1,5 @@
-import {ImageSourcePropType, ImageStyle, Text, View} from 'react-native';
+import {ImageSourcePropType, ImageStyle} from 'react-native';
+import {Text, View} from 'react-native';
 import React, {useCallback, useRef} from 'react';
 import Method from '../../../utils/method';
 import PressableIcon from '../pressableicon';

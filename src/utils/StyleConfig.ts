@@ -1,6 +1,5 @@
-import {Dimensions, Platform} from 'react-native';
-
-const {width, height} = Dimensions.get('window');
+import {Dimensions, Platform, PixelRatio} from 'react-native';
+const {width, height, fontScale, scale} = Dimensions.get('window');
 const isIphone = Platform.OS === 'ios';
 const isAndroid = Platform.OS === 'android';
 const widthPer = width / 100;
@@ -26,7 +25,7 @@ const APP_FONTS = {
   ROBOTO_BOLDITALIC: 'Roboto-BoldItalic',
 };
 export default {
-  countPixelRatio: (size: number) => size * ratioCount,
+  countPixelRatio: (px: number) => PixelRatio.roundToNearestPixel(px),
   responsiveHeight: (size: number) => size * heightPer,
   responsiveWidth: (size: number) => size * widthPer,
   smartScale: (value: number) => {
@@ -52,6 +51,8 @@ export default {
   fontBoldItalic: APP_FONTS.ROBOTO_BOLDITALIC,
   width,
   height,
+  fontScale,
+  scale,
   isPhone: !isTablet(),
   isTab: isTablet(),
   isIphone,

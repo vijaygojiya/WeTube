@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  Image,
-  ImageSourcePropType,
-  ImageStyle,
-  Pressable,
-  StyleSheet,
-  ViewStyle,
-} from 'react-native';
+import type {ImageSourcePropType, ImageStyle, ViewStyle} from 'react-native';
+import {Image, Pressable, StyleSheet} from 'react-native';
 
 import {Color} from '../../../utils/color';
 import StyleConfig from '../../../utils/StyleConfig';

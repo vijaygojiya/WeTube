@@ -1,17 +1,23 @@
-import BottomSheet, {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
-import React, {useEffect, useMemo} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import React, {useEffect, useMemo, useReducer} from 'react';
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
-
-import Toast from './src/components/Toast';
+import {useSharedValue} from 'react-native-reanimated';
 
 import AppNavigator from './src/router';
-import {bottomSheetRef, toastRef} from './src/utils/action';
+// import VideoScreen from './src/screens/others/video';
+import {PlayerContext} from './src/state/context';
+import {playerReducer} from './src/state/reducer';
+import {initialPlayerState} from './src/state/state';
 import {Color} from './src/utils/color';
 import {showToast} from './src/utils/toast';
 
 const App = () => {
+  const [store, dispatch] = useReducer(playerReducer, initialPlayerState);
+
+  const videoTranslateY = useSharedValue(0);
+
   useEffect(() => {
     updateNavigationBarColor();
   }, []);
@@ -38,20 +44,12 @@ const App = () => {
         backgroundColor={Color.balck}
         barStyle="light-content"
       />
-      <AppNavigator />
-      <Toast {...{ref: toastRef}} />
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={-1}
-        backdropComponent={BottomSheetBackdrop}
-        enablePanDownToClose={true}
-        snapPoints={snapPoints}
-        // backgroundStyle={{backgroundColor: Color.balck}}
-      >
-        <View style={styles.contentContainer}>
-          <Text>Awesome 🎉</Text>
-        </View>
-      </BottomSheet>
+      <PlayerContext.Provider value={{store, dispatch}}>
+        <NavigationContainer>
+          <AppNavigator videoTranslateY={videoTranslateY} />
+          {/* <VideoScreen /> */}
+        </NavigationContainer>
+      </PlayerContext.Provider>
     </GestureHandlerRootView>
   );
 };

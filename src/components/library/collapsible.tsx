@@ -110,7 +110,7 @@ export default class Collapsible extends Component {
 
   _transitionToHeight(height: any) {
     const {duration} = this.props;
-    let easing = this.props.easing;
+    let {easing} = this.props;
     if (typeof easing === 'string') {
       let prefix;
       let found = false;
