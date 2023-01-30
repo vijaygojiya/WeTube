@@ -22,15 +22,6 @@ function AppNavigator() {
       }}>
       <Screen name={Routes.MainNav} component={TabNavigator} />
       <Screen name={Routes.Profile} component={ProfileScreen} />
-      <Screen
-        options={{
-          presentation: 'fullScreenModal',
-          animation: 'slide_from_bottom',
-          animationDuration: 100,
-        }}
-        name={Routes.VideoDetail}
-        component={VideoDetailScreen}
-      />
     </Navigator>
   );
 }

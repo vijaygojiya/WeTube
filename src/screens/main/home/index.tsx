@@ -1,8 +1,10 @@
-import React, {useCallback, useRef} from 'react';
+import React, {useCallback, useContext, useRef} from 'react';
 import {Animated, View} from 'react-native';
 import HomeVidoeListItem from '../../../components/custom/homevideolistitem';
 import TopAppBars from '../../../components/custom/topappbars';
 import {Routes} from '../../../router/routes';
+import { PlayerContext } from '../../../state/context';
+import { setPlayerPoint } from '../../../state/reducer';
 import {VideoType} from '../../../typeing';
 import {HomeScreenProps} from '../../../typings';
 import {homeFlatlistRef} from '../../../utils/action';
@@ -15,6 +17,7 @@ const headerHeight = 54 * 2;
 
 const HomeScreen = (Props: HomeScreenProps) => {
   const {navigation} = Props;
+  const { dispatch } = useContext(PlayerContext);
   const scrollY = useRef(new Animated.Value(0));
   const scrollYClamped = diffClamp(scrollY.current, 0, headerHeight);
 
@@ -65,9 +68,10 @@ const HomeScreen = (Props: HomeScreenProps) => {
   const openVideoDetailScreen = (data: VideoType) => {
     navigation.navigate(Routes.VideoDetail, {videoData: data});
   };
-  const renderVideoListItem = ({item}: {item: VideoType}) => {
+  const renderVideoListItem = ({item,index}: {item: VideoType}) => {
     const handleVideoItemClick = () => {
-      openVideoDetailScreen(item);
+      // openVideoDetailScreen(item);
+      dispatch(setPlayerPoint(0));
     };
     return <HomeVidoeListItem {...item} onItemClick={handleVideoItemClick} />;
   };
