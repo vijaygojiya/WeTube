@@ -6,7 +6,8 @@ import LibraryScreen from '../screens/main/library';
 import ShortsScreen from '../screens/main/shorts';
 import SubscriptionsScreen from '../screens/main/subscriptions';
 import CustomTabBar from './customtabbar';
-import Routes from './routes';
+import {Routes} from './routes';
+
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {

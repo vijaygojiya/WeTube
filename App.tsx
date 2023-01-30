@@ -3,10 +3,7 @@ import React, {useEffect, useMemo, useReducer} from 'react';
 import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
-import {useSharedValue} from 'react-native-reanimated';
-
 import AppNavigator from './src/router';
-// import VideoScreen from './src/screens/others/video';
 import {PlayerContext} from './src/state/context';
 import {playerReducer} from './src/state/reducer';
 import {initialPlayerState} from './src/state/state';
@@ -15,8 +12,6 @@ import {showToast} from './src/utils/toast';
 
 const App = () => {
   const [store, dispatch] = useReducer(playerReducer, initialPlayerState);
-
-  const videoTranslateY = useSharedValue(0);
 
   useEffect(() => {
     updateNavigationBarColor();
@@ -30,13 +25,6 @@ const App = () => {
     }
   };
 
-  // ref
-
-  // variables
-  const snapPoints = useMemo(() => ['45%'], []);
-
-  // callbacks
-
   return (
     <GestureHandlerRootView style={styles.rootViewBackground}>
       <StatusBar
@@ -46,7 +34,7 @@ const App = () => {
       />
       <PlayerContext.Provider value={{store, dispatch}}>
         <NavigationContainer>
-          <AppNavigator videoTranslateY={videoTranslateY} />
+          <AppNavigator />
           {/* <VideoScreen /> */}
         </NavigationContainer>
       </PlayerContext.Provider>

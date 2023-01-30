@@ -5,4 +5,5 @@ export const Color = {
   bg2: '#212121',
   balck: '#000000',
   white: '#ffffff',
+  ytRed: '#ff4e45',
 };

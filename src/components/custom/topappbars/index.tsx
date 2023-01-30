@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   saContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    height: (58 * 2) / 2,
+    height: (54 * 2) / 2,
   },
   ytLogoStyle: {
     width: StyleConfig.countPixelRatio(89),

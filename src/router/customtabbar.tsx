@@ -11,7 +11,7 @@ import {Always, Never} from '../utils/constant';
 import {Type_Of_TabBar} from '../utils/enum';
 import {String} from '../utils/string';
 import StyleConfig from '../utils/StyleConfig';
-import Routes from './routes';
+import {Routes} from './routes';
 import TabBarItem from './tabbaritem';
 
 const TabBarList = [

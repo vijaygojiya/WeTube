@@ -1,15 +1,8 @@
-import moment from 'moment';
-import React, {memo} from 'react';
-import {
-  Alert,
-  Image,
-  ImageBackground,
-  Pressable,
-  Text,
-  View,
-} from 'react-native';
+import React, {memo, FC} from 'react';
+import {Image, ImageBackground, Pressable, Text, View} from 'react-native';
 
 import AppImages from '../../../assets/images';
+import {VideoType} from '../../../typeing';
 import {showToast} from '../../../utils/action';
 import {Color} from '../../../utils/color';
 import {dummyChannelPicutre} from '../../../utils/constant';
@@ -18,22 +11,24 @@ import PressableIcon from '../pressableicon';
 
 import {styles} from './styles';
 
-const HomeVidoeListItem = (props: {
-  id: string;
-  title: string;
-  thumbnailUrl: string;
-  duration: string;
-  uploadTime: string;
-  views: number;
-  author: string;
-  videoUrl: string;
-  description: string;
-  subscriber: string;
-  isLive: boolean;
-}) => {
-  const {thumbnailUrl, duration, title, author, uploadTime, views} = props;
+interface Props extends VideoType {
+  onItemClick: () => void;
+}
+
+const HomeVidoeListItem: FC<Props> = props => {
+  const {
+    thumbnailUrl,
+    duration,
+    title,
+    author,
+    uploadTime,
+    views,
+    onItemClick,
+  } = props;
   return (
-    <Pressable android_ripple={{color: Color.subTitleColor}}>
+    <Pressable
+      android_ripple={{color: Color.subTitleColor}}
+      onPress={onItemClick}>
       <ImageBackground
         source={{uri: thumbnailUrl}}
         style={styles.thumbnailImageStyle}>
@@ -58,7 +53,6 @@ const HomeVidoeListItem = (props: {
         <PressableIcon
           iconSource={AppImages.ic_more_info}
           iconPress={() => {
-            // Alert.alert('','in dev')
             showToast('testing.');
           }}
         />

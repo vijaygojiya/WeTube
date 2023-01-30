@@ -4,38 +4,33 @@ import React from 'react';
 import {SharedValue} from 'react-native-reanimated';
 
 import ProfileScreen from '../screens/others/profile';
+import VideoDetailScreen from '../screens/others/video';
+import {VideoType} from '../typeing';
+import {RootStackParamList} from '../typings';
 import {Color} from '../utils/color';
-import Routes from './routes';
+import {Routes} from './routes';
 
-export type RootParamList = {
-  MainNav: undefined;
-  Profile: undefined;
-};
 import TabNavigator from './tabnavigator';
 
-const {Navigator, Screen} = createNativeStackNavigator<RootParamList>();
+const {Navigator, Screen} = createNativeStackNavigator<RootStackParamList>();
 
-const MyTheme = {
-  dark: false,
-  colors: {
-    background: Color.balck,
-  },
-};
-
-function AppNavigator({
-  videoTranslateY,
-}: {
-  videoTranslateY: SharedValue<number>;
-}) {
+function AppNavigator() {
   return (
     <Navigator
       screenOptions={{
         headerShown: false,
       }}>
-      <Screen name={Routes.MainNav}>
-        {() => <TabNavigator videoTranslateY={videoTranslateY} />}
-      </Screen>
+      <Screen name={Routes.MainNav} component={TabNavigator} />
       <Screen name={Routes.Profile} component={ProfileScreen} />
+      <Screen
+        options={{
+          presentation: 'fullScreenModal',
+          animation: 'slide_from_bottom',
+          animationDuration: 100,
+        }}
+        name={Routes.VideoDetail}
+        component={VideoDetailScreen}
+      />
     </Navigator>
   );
 }

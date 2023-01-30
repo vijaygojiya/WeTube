@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
   header: {
     position: 'absolute',
-    backgroundColor: '#1c1c1c',
+    backgroundColor: Color.balck,
     left: 0,
     right: 0,
     width: '100%',
