@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, ViewStyle } from 'react-native';
+import {Button, View, ViewStyle} from 'react-native';
 
 type Props = {
   isPlayed: boolean;
@@ -21,10 +21,12 @@ export const VideoReplayed = React.memo<Props>(function VideoReplayed({
   isPlayed,
   onPress,
 }) {
-  if (!isPlayed) return null;
+  if (!isPlayed) {
+    return null;
+  }
   return (
     <View style={STYLE}>
-      <Button onPress={onPress} title={`replay`} />
+      <Button onPress={onPress} title={'replay'} />
     </View>
   );
 });

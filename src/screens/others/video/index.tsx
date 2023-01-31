@@ -50,7 +50,7 @@ import {mb, mr, mt, px2dp} from '../utils/ui-tools';
 import {PlayerContext} from '../../../state/context';
 import {setPlayerPaused, setPlayerPoint} from '../../../state/reducer';
 import {BottomSheetDefaultBackdropProps} from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackdrop/types';
-import { videos } from '../../../utils/dummydata/videos';
+import {videos} from '../../../utils/dummydata/videos';
 
 const AnimatedLottieView = Animated.createAnimatedComponent(LottieView);
 
@@ -350,7 +350,6 @@ export const VideoScreen = ({
           />
         </Animated.View>
       );
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     },
     [],
   );
@@ -405,14 +404,6 @@ export const VideoScreen = ({
       </View>
     </ThemeView>
   );
-  const renderBubble = useCallback(() => {
-    return (
-      <Image
-        source={require('../assets/snapshot.png')}
-        style={styles.snapshot}
-      />
-    );
-  }, []);
 
   /**
    * on pan event
@@ -591,7 +582,7 @@ export const VideoScreen = ({
               </TouchableOpacity>
             </Animated.View>
             <VideoPlayer
-              source={{uri : videos[0].videoUrl}}
+              source={{uri: videos[0].videoUrl}}
               playWhenInactive
               posterResizeMode="cover"
               ignoreSilentSwitch="ignore"
@@ -613,8 +604,6 @@ export const VideoScreen = ({
               videoDefaultHeight={VIDEO_DEFAULT_HEIGHT}
               ref={videoPlayerRef}
               sliderProps={{
-                renderBubble: renderBubble,
-                bubbleTranslateY: -60,
                 bubbleWidth: 120,
                 bubbleMaxWidth: 120,
                 disable: diasbled,

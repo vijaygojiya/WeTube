@@ -1,11 +1,13 @@
 import React from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import {ActivityIndicator, StyleSheet, View} from 'react-native';
 
 type Props = {
   loading?: boolean;
 };
-export const VideoLoader = React.memo<Props>(function VideoLoader({ loading }) {
-  if (!loading) return null;
+export const VideoLoader = React.memo<Props>(function VideoLoader({loading}) {
+  if (!loading) {
+    return null;
+  }
   return (
     <View style={loaderStyle.container}>
       <ActivityIndicator size="large" color="white" />

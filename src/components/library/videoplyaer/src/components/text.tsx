@@ -5,7 +5,7 @@ import {
   Text as NativeText,
   TextProps,
 } from 'react-native';
-import { palette } from '../theme/palette';
+import {palette} from '../theme/palette';
 const normalize = (size: number) => size;
 export interface _TextProps extends TextProps {
   h1?: boolean;
@@ -54,68 +54,68 @@ export const Text = React.forwardRef<NativeText, _TextProps>(function Text(
       ref={ref}
       style={StyleSheet.flatten([
         styles.text,
-        { color },
+        {color},
         isCenter && styles.textCenter,
 
         (t1 || t2 || t3 || t4 || t5) && tBold && styles.enTBold,
         h1 &&
           StyleSheet.flatten([
-            { fontSize: normalize(28) },
-            !verticalCenter && { lineHeight: normalize(36) },
+            {fontSize: normalize(28)},
+            !verticalCenter && {lineHeight: normalize(36)},
             styles.h1,
           ]),
         h2 &&
           StyleSheet.flatten([
-            { fontSize: normalize(24) },
-            !verticalCenter && { lineHeight: normalize(32) },
+            {fontSize: normalize(24)},
+            !verticalCenter && {lineHeight: normalize(32)},
             styles.h2,
           ]),
         h3 &&
           StyleSheet.flatten([
-            { fontSize: normalize(18) },
-            !verticalCenter && { lineHeight: normalize(28) },
+            {fontSize: normalize(18)},
+            !verticalCenter && {lineHeight: normalize(28)},
             styles.h3,
           ]),
         h4 &&
           StyleSheet.flatten([
-            { fontSize: normalize(16) },
-            !verticalCenter && { lineHeight: normalize(24) },
+            {fontSize: normalize(16)},
+            !verticalCenter && {lineHeight: normalize(24)},
             styles.h4,
           ]),
         h5 &&
           StyleSheet.flatten([
-            { fontSize: normalize(14) },
-            !verticalCenter && { lineHeight: normalize(20) },
+            {fontSize: normalize(14)},
+            !verticalCenter && {lineHeight: normalize(20)},
             styles.h5,
           ]),
         t1 &&
           StyleSheet.flatten([
-            { fontSize: normalize(14) },
-            !verticalCenter && { lineHeight: normalize(20) },
+            {fontSize: normalize(14)},
+            !verticalCenter && {lineHeight: normalize(20)},
           ]),
         t2 &&
           StyleSheet.flatten([
-            { fontSize: normalize(13) },
-            !verticalCenter && { lineHeight: normalize(18) },
+            {fontSize: normalize(13)},
+            !verticalCenter && {lineHeight: normalize(18)},
           ]),
         t3 &&
           StyleSheet.flatten([
-            { fontSize: normalize(12) },
-            !verticalCenter && { lineHeight: normalize(16) },
+            {fontSize: normalize(12)},
+            !verticalCenter && {lineHeight: normalize(16)},
           ]),
         t4 &&
           StyleSheet.flatten([
-            { fontSize: normalize(11) },
-            !verticalCenter && { lineHeight: normalize(16) },
+            {fontSize: normalize(11)},
+            !verticalCenter && {lineHeight: normalize(16)},
           ]),
         t5 &&
           StyleSheet.flatten([
-            { fontSize: normalize(10) },
-            !verticalCenter && { lineHeight: normalize(14) },
+            {fontSize: normalize(10)},
+            !verticalCenter && {lineHeight: normalize(14)},
           ]),
         paragraph &&
           StyleSheet.flatten([
-            { fontSize: normalize(14), lineHeight: normalize(24) },
+            {fontSize: normalize(14), lineHeight: normalize(24)},
           ]),
         style,
       ])}
@@ -138,9 +138,9 @@ const styles = StyleSheet.create({
   h2: {
     fontWeight: bold,
   },
-  h3: { fontWeight: bold },
-  h4: { fontWeight: bold },
-  h5: { fontWeight: bold },
+  h3: {fontWeight: bold},
+  h4: {fontWeight: bold},
+  h5: {fontWeight: bold},
 
   text: {
     fontSize: normalize(14),

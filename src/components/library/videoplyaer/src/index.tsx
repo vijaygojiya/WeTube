@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import LottieView from 'lottie-react-native';
 import React, {
   forwardRef,
@@ -18,9 +17,9 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import type { PanGesture } from 'react-native-gesture-handler';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import Orientation, { OrientationType } from 'react-native-orientation-locker';
+import type {PanGesture} from 'react-native-gesture-handler';
+import {Gesture, GestureDetector} from 'react-native-gesture-handler';
+import Orientation, {OrientationType} from 'react-native-orientation-locker';
 import Animated, {
   cancelAnimation,
   runOnJS,
@@ -31,26 +30,30 @@ import Animated, {
   withDelay,
   withTiming,
 } from 'react-native-reanimated';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Video, {
   OnLoadData,
   OnProgressData,
   OnSeekData,
   VideoProperties,
 } from 'react-native-video';
-import { SliderThemeType, AwesomeSliderProps ,Slider} from '../../rnawesomeslider/src';
-import { clamp } from '../../rnawesomeslider/src/utils';
-import { Text } from './components';
-import { Ripple } from './components/ripple';
-import { TapControler } from './tap-controler';
-import { palette } from './theme/palette';
-import { bin, isIos, useRefs } from './utils';
-import { VideoLoader } from './video-loading';
-import { formatTime, formatTimeToMins, secondToTime } from './video-utils';
-export const { width, height, scale, fontScale } = Dimensions.get('window');
+import {
+  SliderThemeType,
+  AwesomeSliderProps,
+  Slider,
+} from '../../rnawesomeslider/src';
+import {clamp} from '../../rnawesomeslider/src/utils';
+import {Text} from './components';
+import {Ripple} from './components/ripple';
+import {TapControler} from './tap-controler';
+import {palette} from './theme/palette';
+import {bin, isIos, useRefs} from './utils';
+import {VideoLoader} from './video-loading';
+import {formatTime, formatTimeToMins, secondToTime} from './video-utils';
+export const {width, height, scale, fontScale} = Dimensions.get('window');
 
 const VIDEO_DEFAULT_HEIGHT = width * (9 / 16);
-const hitSlop = { left: 8, bottom: 8, right: 8, top: 8 };
+const hitSlop = {left: 8, bottom: 8, right: 8, top: 8};
 
 const controlAnimteConfig = {
   duration: 200,
@@ -218,7 +221,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
     const videoPlayer = useRef<Video>(null);
     const mounted = useRef(false);
     const autoPlayAnimation = useSharedValue(autoPlay ? 1 : 0);
-    const { rippleLeft, rippleRight } = useRefs();
+    const {rippleLeft, rippleRight} = useRefs();
     /**
      * reanimated value
      */
@@ -333,7 +336,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
     });
     const autoPlayAnimatedProps = useAnimatedProps(() => {
       return {
-        progress: withTiming(autoPlayAnimation.value, { duration: 600 }),
+        progress: withTiming(autoPlayAnimation.value, {duration: 600}),
       };
     });
     /**
@@ -474,11 +477,11 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
      * on pan event
      */
     const defalutPanGesture = Gesture.Pan()
-      .onStart(({ velocityY, velocityX }) => {
+      .onStart(({velocityY, velocityX}) => {
         panIsVertical.value = Math.abs(velocityY) > Math.abs(velocityX);
       })
-      .onUpdate(({ translationY }) => {
-        controlViewOpacity.value = withTiming(0, { duration: 100 });
+      .onUpdate(({translationY}) => {
+        controlViewOpacity.value = withTiming(0, {duration: 100});
         if (isFullScreen.value) {
           if (translationY > 0 && Math.abs(translationY) < 100) {
             videoScale.value = clamp(
@@ -494,7 +497,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
           }
         }
       })
-      .onEnd(({ translationY }, success) => {
+      .onEnd(({translationY}, success) => {
         if (!panIsVertical.value && !success) {
           return;
         }
@@ -532,18 +535,18 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
     const doubleTapHandle = Gesture.Tap()
       .numberOfTaps(2)
       .maxDuration(doubleTapInterval)
-      .onStart(({ x }) => {
+      .onStart(({x}) => {
         doubleTapIsAlive.value =
           x < leftDoubleTapBoundary && x > rightDoubleTapBoundary;
       })
-      .onEnd(({ x, y, numberOfPointers }, success) => {
+      .onEnd(({x, y, numberOfPointers}, success) => {
         if (success) {
           if (numberOfPointers !== 1) {
             return;
           }
           if (x < leftDoubleTapBoundary) {
             doubleLeftOpacity.value = 1;
-            rippleLeft.current?.onPress({ x, y });
+            rippleLeft.current?.onPress({x, y});
             runOnJS(seekByStep)(true);
             return;
           }
@@ -691,8 +694,8 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
      *
      * @param {object} data The video meta data
      */
-     const onProgress = (data: OnProgressData) => {
-      const { currentTime: cTime } = data;
+    const onProgress = (data: OnProgressData) => {
+      const {currentTime: cTime} = data;
       if (!isScrubbing.value) {
         if (!isSeeking.current) {
           progress.value = cTime;
@@ -1020,7 +1023,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
                   doubleLeftOpacity.value = 0;
                 }}
                 style={[controlStyle.doubleTap, controlStyle.leftDoubleTap]}
-                containerStyle={[{ width: leftDoubleTapBoundary }]}>
+                containerStyle={[{width: leftDoubleTapBoundary}]}>
                 <Animated.View style={getDoubleLeftStyle}>
                   <LottieView
                     source={require('./assets/lottie-seek-back.json')}
@@ -1041,7 +1044,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
                   controlStyle.doubleTap,
                   controlStyle.rightDoubleTapContainer,
                 ]}
-                containerStyle={[{ width: leftDoubleTapBoundary }]}>
+                containerStyle={[{width: leftDoubleTapBoundary}]}>
                 <Animated.View style={getDoubleRightStyle}>
                   <LottieView
                     source={require('./assets/lottie-seek-back.json')}
@@ -1049,7 +1052,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
                     loop
                     style={[
                       controlStyle.backStep,
-                      { transform: [{ rotate: '90deg' }] },
+                      {transform: [{rotate: '90deg'}]},
                     ]}
                   />
                   <Text tx="10s" isCenter color={palette.W(1)} t5 />
@@ -1081,7 +1084,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
 
             {isIos && (
               <View
-                style={[styles.stopBackView, { left: -insets.left }]}
+                style={[styles.stopBackView, {left: -insets.left}]}
                 pointerEvents={isFullScreenState ? 'auto' : 'none'}
               />
             )}

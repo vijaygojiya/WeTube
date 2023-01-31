@@ -1,13 +1,13 @@
-import React, { useImperativeHandle, useState } from 'react';
-import type { StyleProp, ViewStyle } from 'react-native';
-import { View } from 'react-native';
+import React, {useImperativeHandle, useState} from 'react';
+import type {StyleProp, ViewStyle} from 'react-native';
+import {View} from 'react-native';
 import Animated, {
   runOnJS,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-export type RippleTargetEvent = { x: number; y: number };
+export type RippleTargetEvent = {x: number; y: number};
 
 type RippleBtnProps = {
   children: React.ReactElement;
@@ -19,7 +19,7 @@ type RippleBtnProps = {
   style?: StyleProp<ViewStyle>;
 };
 export type RippleRef = {
-  onPress: ({ x, y }: RippleTargetEvent) => void;
+  onPress: ({x, y}: RippleTargetEvent) => void;
 };
 const _Ripple = React.forwardRef<RippleRef, RippleBtnProps>(
   (
@@ -49,8 +49,8 @@ const _Ripple = React.forwardRef<RippleRef, RippleBtnProps>(
         opacity: rippleOpacity.value,
 
         transform: [
-          { translateX },
-          { translateY },
+          {translateX},
+          {translateY},
           {
             scale: scale.value,
           },
@@ -58,7 +58,7 @@ const _Ripple = React.forwardRef<RippleRef, RippleBtnProps>(
       };
     }, [radius]);
     useImperativeHandle(ref, () => ({
-      onPress: ({ x, y }) => {
+      onPress: ({x, y}) => {
         'worklet';
 
         centerX.value = x;
@@ -66,10 +66,10 @@ const _Ripple = React.forwardRef<RippleRef, RippleBtnProps>(
 
         rippleOpacity.value = 1;
         scale.value = 0;
-        scale.value = withTiming(1, { duration }, finised => {
+        scale.value = withTiming(1, {duration}, finised => {
           if (finised) {
             isFinished.value = true;
-            scale.value = withTiming(0, { duration: 0 });
+            scale.value = withTiming(0, {duration: 0});
             if (onAnimationEnd) {
               runOnJS(onAnimationEnd)();
             }
@@ -82,7 +82,7 @@ const _Ripple = React.forwardRef<RippleRef, RippleBtnProps>(
       <View
         onLayout={({
           nativeEvent: {
-            layout: { width, height },
+            layout: {width, height},
           },
         }) => {
           setRadius(Math.sqrt(width ** 2 + height ** 2));
@@ -94,7 +94,7 @@ const _Ripple = React.forwardRef<RippleRef, RippleBtnProps>(
             style={[
               style,
               containerStyle,
-              { overflow: !overflow ? 'hidden' : 'visible' },
+              {overflow: !overflow ? 'hidden' : 'visible'},
             ]}>
             {children}
             <Animated.View

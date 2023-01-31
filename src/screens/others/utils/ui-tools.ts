@@ -1,4 +1,4 @@
-import { PixelRatio } from 'react-native';
+import {PixelRatio} from 'react-native';
 
 export const ml = (multiple = 1) => {
   return {

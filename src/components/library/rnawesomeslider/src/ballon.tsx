@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useRef, memo } from 'react';
+import React, {forwardRef, useImperativeHandle, useRef, memo} from 'react';
 import {
   StyleProp,
   TextInput,
@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import Animated from 'react-native-reanimated';
-import { palette } from './theme/palette';
+import {palette} from './theme/palette';
 
 const BUBBLE_STYLE: ViewStyle = {
   padding: 2,
@@ -49,13 +49,13 @@ export const BubbleComponent = forwardRef<BubbleRef, BubbleProps>(
       textColor = palette.White,
       bubbleMaxWidth,
     },
-    ref
+    ref,
   ) => {
     const textRef = useRef<TextInput>(null);
 
     useImperativeHandle(ref, () => ({
       setText: (text: string) => {
-        textRef.current?.setNativeProps({ text });
+        textRef.current?.setNativeProps({text});
       },
     }));
     return (
@@ -65,12 +65,11 @@ export const BubbleComponent = forwardRef<BubbleRef, BubbleProps>(
             ...BUBBLE_STYLE,
             backgroundColor: color,
             maxWidth: bubbleMaxWidth,
-          }}
-        >
+          }}>
           <TextInput
             ref={textRef}
             textAlign="center"
-            style={[styles.textStyle, { color: textColor }, textStyle]}
+            style={[styles.textStyle, {color: textColor}, textStyle]}
             defaultValue=""
             caretHidden
           />
@@ -85,7 +84,7 @@ export const BubbleComponent = forwardRef<BubbleRef, BubbleProps>(
         />
       </Animated.View>
     );
-  }
+  },
 );
 export const Bubble = memo(BubbleComponent);
 const styles = StyleSheet.create({

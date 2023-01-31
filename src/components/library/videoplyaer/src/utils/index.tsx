@@ -1,9 +1,9 @@
-import { useRef } from 'react';
-import { Dimensions, Platform } from 'react-native';
-import type { RippleRef } from 'src/components/ripple';
+import {useRef} from 'react';
+import {Dimensions, Platform} from 'react-native';
+import type {RippleRef} from 'src/components/ripple';
 
 export const normalize = (size: number) => size;
-export const { width, height, scale, fontScale } = Dimensions.get('window');
+export const {width, height, scale, fontScale} = Dimensions.get('window');
 export const isIos = Platform.OS === 'ios';
 export const bin = (value: boolean): 0 | 1 => {
   'worklet';

@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState, useMemo, memo, useCallback } from 'react';
+import React, {FC, useRef, useState, useMemo, memo, useCallback} from 'react';
 import {
   Insets,
   LayoutChangeEvent,
@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { GestureDetector, Gesture } from 'react-native-gesture-handler';
+import {GestureDetector, Gesture} from 'react-native-gesture-handler';
 import Animated, {
   runOnJS,
   useAnimatedReaction,
@@ -18,9 +18,9 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
-import { Bubble, BubbleRef } from './ballon';
-import { palette } from './theme/palette';
-import { clamp } from './utils';
+import {Bubble, BubbleRef} from './ballon';
+import {palette} from './theme/palette';
+import {clamp} from './utils';
 const formatSeconds = (second: number) => `${Math.round(second * 100) / 100}`;
 const hitSlop = {
   top: 12,
@@ -143,7 +143,7 @@ export type AwesomeSliderProps = {
   /**
    * Render custom mark element. if you need to customize mark, you also need to set the `mark width`
    */
-  renderMark?: ({ index }: { index: number }) => React.ReactNode;
+  renderMark?: ({index}: {index: number}) => React.ReactNode;
 
   /**
    * Thumb elements width, default 15
@@ -316,13 +316,13 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
       translateX = clamp(
         thumbValue.value,
         0,
-        width.value ? width.value - thumbWidth : 0
+        width.value ? width.value - thumbWidth : 0,
       );
     } else {
       translateX = clamp(
         progressToValue(progress.value),
         0,
-        width.value ? width.value - thumbWidth : 0
+        width.value ? width.value - thumbWidth : 0,
       );
     }
     sliderTotalValue.value; // hack: force recompute styles when 'sliderTotalValue' change
@@ -361,14 +361,14 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
                   clamp(
                     translateX,
                     bubbleWidth / 2,
-                    width.value - bubbleWidth / 2
+                    width.value - bubbleWidth / 2,
                   ),
-                  stepTimingOptions
+                  stepTimingOptions,
                 )
               : clamp(
                   translateX,
                   bubbleWidth / 2,
-                  width.value - bubbleWidth / 2
+                  width.value - bubbleWidth / 2,
                 ),
         },
         {
@@ -397,7 +397,7 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
         ? setBubbleText(bubbleText)
         : bubbleRef.current?.setText(bubbleText);
     },
-    [bubble, onValueChange, setBubbleText]
+    [bubble, onValueChange, setBubbleText],
   );
 
   /**
@@ -411,13 +411,13 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
         minimumValue.value +
           (thumbIndex.value / step) * (maximumValue.value - minimumValue.value),
         minimumValue.value,
-        maximumValue.value
+        maximumValue.value,
       );
     } else {
       const sliderPercent = clamp(
         thumbValue.value / (width.value - thumbWidth),
         0,
-        1
+        1,
       );
       return (
         minimumValue.value +
@@ -460,7 +460,7 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
       width.value,
       minimumValue.value,
       snappingEnabled,
-    ]
+    ],
   );
 
   /**
@@ -474,7 +474,7 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
         isScrubbing.value = true;
       }
       if (snappingEnabled) {
-        const index = markLeftArr.value.findIndex((item) => item >= x);
+        const index = markLeftArr.value.findIndex(item => item >= x);
         const arrNext = markLeftArr.value[index];
         const arrPrev = markLeftArr.value[index - 1];
         // Computing step boundaries
@@ -543,7 +543,7 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
       width.value,
       xToProgress,
       snappingEnabled,
-    ]
+    ],
   );
 
   const onGestureEvent = useMemo(
@@ -568,7 +568,7 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
             runOnJS(onSlidingStart)();
           }
         })
-        .onUpdate(({ x }) => {
+        .onUpdate(({x}) => {
           if (disable) {
             return;
           }
@@ -583,7 +583,7 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
 
           onActiveSlider(x);
         })
-        .onEnd(({ x }) => {
+        .onEnd(({x}) => {
           if (disable) {
             return;
           }
@@ -617,13 +617,13 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
       progress,
       shareValueToSeconds,
       xToProgress,
-    ]
+    ],
   );
   const onSingleTapEvent = useMemo(
     () =>
       Gesture.Tap()
         .hitSlop(panHitSlop)
-        .onEnd(({ x }, isFinished) => {
+        .onEnd(({x}, isFinished) => {
           if (onTap) {
             runOnJS(onTap)();
           }
@@ -653,12 +653,12 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
       onTap,
       panHitSlop,
       shareValueToSeconds,
-    ]
+    ],
   );
 
   const gesture = useMemo(
     () => Gesture.Race(onSingleTapEvent, onGestureEvent),
-    [onGestureEvent, onSingleTapEvent]
+    [onGestureEvent, onSingleTapEvent],
   );
 
   // setting markLeftArr
@@ -675,10 +675,10 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
       }
       return [];
     },
-    (data) => {
+    data => {
       markLeftArr.value = data;
     },
-    [thumbWidth, markWidth, step, progress, width]
+    [thumbWidth, markWidth, step, progress, width],
   );
 
   // setting thumbIndex
@@ -697,23 +697,23 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
         const currentWidth = Math.round(
           ((progress.value - minimumValue.value) /
             (maximumValue.value - minimumValue.value)) *
-            width.value
+            width.value,
         );
 
         const currentIndex = marksLeft.findIndex(
-          (value) => value >= currentWidth
+          value => value >= currentWidth,
         );
         return clamp(currentIndex, 0, step);
       }
 
       return undefined;
     },
-    (data) => {
+    data => {
       if (data !== undefined) {
         thumbIndex.value = data;
       }
     },
-    [isScrubbing, maximumValue, minimumValue, step, progress, width]
+    [isScrubbing, maximumValue, minimumValue, step, progress, width],
   );
   // setting thumbValue
   useAnimatedReaction(
@@ -729,14 +729,14 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
         (width.value - (disableTrackFollow ? thumbWidth : 0));
       return clamp(currentValue, 0, width.value - thumbWidth);
     },
-    (data) => {
+    data => {
       if (data !== undefined) {
         thumbValue.value = data;
       }
     },
-    [thumbWidth, maximumValue, minimumValue, step, progress, width]
+    [thumbWidth, maximumValue, minimumValue, step, progress, width],
   );
-  const onLayout = ({ nativeEvent }: LayoutChangeEvent) => {
+  const onLayout = ({nativeEvent}: LayoutChangeEvent) => {
     const layoutWidth = nativeEvent.layout.width;
     width.value = layoutWidth;
     setSliderWidth(layoutWidth);
@@ -746,10 +746,9 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
     <GestureDetector gesture={gesture}>
       <Animated.View
         testID={testID}
-        style={[styles.view, { height: sliderHeight }, style]}
+        style={[styles.view, {height: sliderHeight}, style]}
         hitSlop={panHitSlop}
-        onLayout={onLayout}
-      >
+        onLayout={onLayout}>
         <Animated.View
           style={StyleSheet.flatten([
             styles.slider,
@@ -758,8 +757,7 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
               backgroundColor: _theme.maximumTrackTintColor,
             },
             containerStyle,
-          ])}
-        >
+          ])}>
           <Animated.View
             style={[
               styles.cache,
@@ -794,9 +792,8 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
                     left,
                     width: markWidth,
                   },
-                ]}
-              >
-                {renderMark({ index: i })}
+                ]}>
+                {renderMark({index: i})}
               </View>
             ) : (
               <View
@@ -836,8 +833,7 @@ export const Slider: FC<AwesomeSliderProps> = memo(function Slider({
               width: bubbleMaxWidth,
             },
             animatedBubbleStyle,
-          ]}
-        >
+          ]}>
           {renderBubble ? (
             renderBubble()
           ) : (

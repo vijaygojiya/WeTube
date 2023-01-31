@@ -1,10 +1,10 @@
 import React from 'react';
-import type { StyleProp } from 'react-native';
-import type { ViewProps } from 'react-native';
-import type { ViewStyle } from 'react-native';
-import { normalize } from '../../../components/library/videoplyaer/src/utils';
+import type {StyleProp} from 'react-native';
+import type {ViewProps} from 'react-native';
+import type {ViewStyle} from 'react-native';
+import {normalize} from '../../../components/library/videoplyaer/src/utils';
 
-import type { IconNames } from './iconfont';
+import type {IconNames} from './iconfont';
 import IconFont from './iconfont';
 
 export type IconProps = {
@@ -14,10 +14,10 @@ export type IconProps = {
   style?: StyleProp<ViewStyle>;
   onPress?: () => void;
 } & ViewProps;
-export const Icon = ({ color, size, ...rest }: IconProps) => (
+export const Icon = ({color, size, ...rest}: IconProps) => (
   <IconFont
     {...rest}
-    {...(size ? { size: normalize(size) } : {})}
+    {...(size ? {size: normalize(size)} : {})}
     color={color || ''}
   />
 );

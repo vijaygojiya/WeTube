@@ -1,6 +1,7 @@
+import {PortalProvider} from '@gorhom/portal';
 import {NavigationContainer} from '@react-navigation/native';
-import React, {useEffect, useMemo, useReducer} from 'react';
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useReducer} from 'react';
+import {StatusBar, StyleSheet} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 import {useSharedValue} from 'react-native-reanimated';
@@ -33,21 +34,23 @@ const App = () => {
   };
 
   return (
-    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <GestureHandlerRootView style={styles.rootViewBackground}>
-        <StatusBar
-          animated={true}
-          backgroundColor={Color.balck}
-          barStyle="light-content"
-        />
-        <PlayerContext.Provider value={{store, dispatch}}>
-          <NavigationContainer>
-            <AppNavigator />
-            <VideoScreen videoTranslateY={videoTranslateY} />
-          </NavigationContainer>
-        </PlayerContext.Provider>
-      </GestureHandlerRootView>
-    </SafeAreaProvider>
+    <PortalProvider>
+      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+        <GestureHandlerRootView style={styles.rootViewBackground}>
+          <StatusBar
+            animated={true}
+            backgroundColor={Color.balck}
+            barStyle="light-content"
+          />
+          <PlayerContext.Provider value={{store, dispatch}}>
+            <NavigationContainer>
+              <AppNavigator videoTranslateY={videoTranslateY} />
+              <VideoScreen videoTranslateY={videoTranslateY} />
+            </NavigationContainer>
+          </PlayerContext.Provider>
+        </GestureHandlerRootView>
+      </SafeAreaProvider>
+    </PortalProvider>
   );
 };
 

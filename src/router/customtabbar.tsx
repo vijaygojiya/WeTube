@@ -1,18 +1,28 @@
-import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
+import {Portal} from '@gorhom/portal';
+import {
+  BottomTabBarProps,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
+import {useTheme} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
-import {FlatList, StyleSheet} from 'react-native';
-
-import SafeAreaView from 'react-native-safe-area-view';
-
+import {FlatList, StyleSheet } from 'react-native';
+import Animated, {interpolate, useAnimatedStyle} from 'react-native-reanimated';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import AppImages from '../assets/images';
+import {clamp} from '../components/library/rnawesomeslider/src/utils';
+import HomeScreen from '../screens/main/home';
+import LibraryScreen from '../screens/main/library';
+import ShortsScreen from '../screens/main/shorts';
+import SubscriptionsScreen from '../screens/main/subscriptions';
+import {width, height} from '../screens/others/utils';
 import {bottomSheetRef, homeScreenScrollToTop} from '../utils/action';
 import {Color} from '../utils/color';
-import {Always, Never} from '../utils/constant';
+import {VIDEO_MIN_HEIGHT} from '../utils/constant';
 import {Type_Of_TabBar} from '../utils/enum';
 import {String} from '../utils/string';
 import StyleConfig from '../utils/StyleConfig';
 import {Routes} from './routes';
-import TabBarItem from './tabbaritem';
+import Tabbaritem from './tabbaritem';
 
 const TabBarList = [
   {
@@ -47,9 +57,40 @@ const TabBarList = [
   },
 ];
 
-const CustomTabBar = (props: BottomTabBarProps) => {
+const Tab = createBottomTabNavigator();
+
+const BOTTOM_TAB_HEIGHT = StyleConfig.tabBarHeight;
+
+interface Props extends BottomTabBarProps {
+  videoTranslateY: Animated.SharedValue<number>;
+}
+
+const BottomTabNavigator = ({videoTranslateY, navigation}: Partial<Props>) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const {navigation} = props;
+
+  const {colors} = useTheme();
+  const insets = useSafeAreaInsets();
+
+  const getBottomtabStyle = useAnimatedStyle(() => {
+    const translateY = interpolate(
+      videoTranslateY.value,
+      [0, height - BOTTOM_TAB_HEIGHT - VIDEO_MIN_HEIGHT - insets.bottom],
+      [BOTTOM_TAB_HEIGHT + 44, 0],
+    );
+    const opacity = interpolate(
+      videoTranslateY.value,
+      [0, height - BOTTOM_TAB_HEIGHT - VIDEO_MIN_HEIGHT - insets.bottom],
+      [0, 1],
+    );
+    return {
+      transform: [
+        {
+          translateY: clamp(translateY, 0, 80),
+        },
+      ],
+      opacity,
+    };
+  }, [videoTranslateY]);
 
   const openSheet = () => {
     bottomSheetRef.current?.snapToIndex(0);
@@ -84,7 +125,7 @@ const CustomTabBar = (props: BottomTabBarProps) => {
 
   function renderTabBarItem({item, index}: {item: any; index: number}) {
     return (
-      <TabBarItem
+      <Tabbaritem
         {...item}
         index={index}
         key={index}
@@ -99,31 +140,77 @@ const CustomTabBar = (props: BottomTabBarProps) => {
     [],
   );
 
+  const renderTabBar = () => {
+    return (
+      <Portal>
+        <Animated.View
+          style={[
+            {
+              height: BOTTOM_TAB_HEIGHT + insets.bottom,
+              backgroundColor: colors.background,
+              paddingBottom: insets.bottom,
+              ...styles.saContainer,
+            },
+            getBottomtabStyle,
+          ]}>
+          <FlatList
+            data={TabBarList}
+            horizontal={true}
+            renderItem={renderTabBarItem}
+            keyExtractor={listKeys}
+            overScrollMode="never"
+            showsHorizontalScrollIndicator={false}
+            bounces={false}
+            contentContainerStyle={styles.flTabContainer}
+          />
+        </Animated.View>
+      </Portal>
+    );
+  };
   return (
-    <SafeAreaView
-      forceInset={{top: Never, bottom: Always}}
-      style={styles.saContainer}>
-      <FlatList
-        data={TabBarList}
-        horizontal={true}
-        renderItem={renderTabBarItem}
-        keyExtractor={listKeys}
-        overScrollMode="never"
-        showsHorizontalScrollIndicator={false}
-        bounces={false}
-        contentContainerStyle={styles.flTabContainer}
+    <Tab.Navigator
+      backBehavior="history"
+      screenOptions={{
+        lazy: true,
+        headerShown: false,
+        tabBarHideOnKeyboard: true,
+      }}
+      tabBar={renderTabBar}>
+      <Tab.Screen
+        key="HomeScreenTab"
+        name={Routes.Home}
+        component={HomeScreen}
       />
-    </SafeAreaView>
+      <Tab.Screen
+        options={{
+          unmountOnBlur: true,
+        }}
+        key="ShortScreenTab"
+        name={Routes.Short}
+        component={ShortsScreen}
+      />
+      <Tab.Screen
+        key="SubscriptionsScreenTab"
+        name={Routes.Subscriptions}
+        component={SubscriptionsScreen}
+      />
+      <Tab.Screen
+        key="LibraryScreenTab"
+        name={Routes.Library}
+        component={LibraryScreen}
+      />
+    </Tab.Navigator>
   );
 };
-
-export default CustomTabBar;
+export default BottomTabNavigator;
 
 const styles = StyleSheet.create({
   saContainer: {
     borderTopColor: Color.subTitleColor,
-    borderTopWidth: StyleConfig.countPixelRatio(1),
-    // display:'none'
+    borderTopWidth: StyleConfig.countPixelRatio(0.5),
+    width: width,
+    position: 'absolute',
+    bottom: 0,
   },
   flTabContainer: {
     justifyContent: 'space-around',
